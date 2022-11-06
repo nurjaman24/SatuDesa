@@ -1,2 +1,2 @@
-# SatuDesa
-Satu Pintu Pelayanan Administrasi Desa
+# sadesa
+ Satu Pintu Administrasi Desa - Aplikasi Pelayanan Masyarakat Desa
