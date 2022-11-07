@@ -73,7 +73,6 @@
                                 data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
-                                        <!-- <th data-field="state" data-checkbox="true"></th> -->
                                         <th data-field="nama_desa">Nama Desa</th>
                                         <th data-field="identitas" >Identitas</th>
                                         <th data-field="rukun_warga" >RW</th>
@@ -81,7 +80,6 @@
                                         <th data-field="nip/nik" >NIP/NIK</th>
                                         <th data-field="akun_rw" >Akun RW</th>
                                         <th data-field="action">Action</th>
-                                        
                                     </tr>
                                 </thead>
                                 <tbody>

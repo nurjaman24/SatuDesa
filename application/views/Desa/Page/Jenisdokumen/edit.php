@@ -16,7 +16,7 @@
                                             <?php 
                                             foreach ($tb_jenis_dokumen as $tjd) {
                                             ?>
-                                                <form action="<?= base_url('AdminDesa/prosesubahjenis')?>" method="post">
+                                                <form action="<?= base_url('desa/prosesubahjenis')?>" method="post">
 
                                                     <input type="hidden" class="form-control" value="<?= $tjd->id_jenis ?>"name="id_jenis" hidden required autofocus maxlength="20" />
                                                     <div class="form-group-inner">
@@ -41,7 +41,7 @@
                                                     </div>                                                                                                                  
                                                     <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                         <div class="modal-area-button">
-                                                            <a class="Danger danger-color" href="<?= base_url('AdminDesa/Jenisdokumen')?>">Kembali</a>
+                                                            <a class="Danger danger-color" href="<?= base_url('desa/Jenisdokumen')?>">Kembali</a>
                                                             <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                         </div>
                                                     </div>

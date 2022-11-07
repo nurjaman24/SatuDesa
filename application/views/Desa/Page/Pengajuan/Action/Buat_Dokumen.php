@@ -38,7 +38,7 @@
                                     <!-- Body Modal Untuk Formulir Dokumen-->
                                     <div class="modal-body">
                                         <!-- FORMULIR DOKUMEN -->
-                                        <form action="<?= base_url('AdminDesa/buatdokumen')?>" method="post">   
+                                        <form action="<?= base_url('desa/buatdokumen')?>" method="post">   
                                             <!-- Pilih Tabel Penyimpanan -->
                                                 <div>
                                                     <!-- Tambahkan Script Untuk Memilih Tabel Penyimpanan Data -->

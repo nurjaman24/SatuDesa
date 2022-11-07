@@ -10,11 +10,13 @@
                     <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                 </div>
                 <div class="modal-header text-center">
-                Persyaratan Penduduk atas Nama : <?= $tpeng->nama?>, dengan NIK <?= $tpeng->nik?>
+                Data Persyaratan penduduk <br>
+                <h3><b><?= $tpeng->nama?></b></h3>
                 </div>
                 <div class="modal-body">
                     <table class="table-hover">
                         <tbody>
+                            <!-- Lihat Persyaratan -->
                             <?php 
                                 $tb_persyaratan = $this->db->query("SELECT * FROM `tb_persyaratan` Where id_penduduk = $tpeng->id_penduduk")->result();
                                 foreach($tb_persyaratan as $tper){

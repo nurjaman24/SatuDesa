@@ -20,9 +20,6 @@
     elseif ($tpeng->jenis_dokumen == "SURAT KETERANGAN TIDAK MAMPU") {
         $jenisfungsicetak = "cetak_sktm";
     }
-    // elseif ($tpeng->jenis_dokumen == "SURAT UPCPK") {
-    //     $jenisfungsicetak = "cetak_upcpk"; 
-    // }
     else{
         $jenisfungsicetak = ""; 
     }

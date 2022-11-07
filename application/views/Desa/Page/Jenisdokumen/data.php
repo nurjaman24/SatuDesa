@@ -12,14 +12,9 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div id="toolbar">
-                                <!-- <select class="form-control dt-tb">
-                                    <option value="">Export Dasar</option>
-                                    <option value="all">Export Semua</option>
-                                    <option value="selected">Export Yang Dipilih</option>
-                                </select> -->
                             </div>
                             <div class="">
-                                <a href="<?= base_url('AdminDesa/tambahdatajenisdokumen')?>" class="btn btn-success">Tambah Data</a>
+                                <a href="<?= base_url('desa/tambahdatajenisdokumen')?>" class="btn btn-success">Tambah Data</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
@@ -43,8 +38,8 @@
                                             </pre>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('AdminDesa/edit_jenis/'.$tjd->id_jenis)?>"><i class="fa fa-edit btn btn-primary"> Ubah</i></a> 
-                                            <a href="<?= base_url('AdminDesa/hapus_jenis/'.$tjd->id_jenis)?>"><i class="fa fa-trash btn btn-danger"> Hapus</i></a>
+                                            <a href="<?= base_url('desa/edit_jenis/'.$tjd->id_jenis)?>"><i class="fa fa-edit btn btn-primary"> Ubah</i></a> 
+                                            <a href="<?= base_url('desa/hapus_jenis/'.$tjd->id_jenis)?>"><i class="fa fa-trash btn btn-danger"> Hapus</i></a>
                                         </td>
                                     </tr>
                                     <?php }?>

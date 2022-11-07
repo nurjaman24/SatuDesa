@@ -42,7 +42,7 @@
                         </li> -->
                         <li>
                             <a title="Landing Page" href="<?= base_url('desa/datapenduduk')?>"aria-expanded="false">
-                                <span class="educate-icon educate-user icon-wrap sub-icon-mg" aria-hidden="true"></span> 
+                                <span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Data Penduduk</span>
                             </a>
                         </li>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('AdminDesa/arsipdokumen')?>" aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('desa/arsipdokumen')?>" aria-expanded="false">
                                 <span class="educate-icon educate-department icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Arsip Dokumen</span>
                             </a>

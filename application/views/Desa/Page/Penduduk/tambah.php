@@ -14,7 +14,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="all-form-element-inner">
 
-                                                <form action="<?= base_url('AdminDesa/prosestambahdatapenduduk')?>" method="post">                                                    
+                                                <form action="<?= base_url('desa/prosestambahdatapenduduk')?>" method="post">                                                    
                                                     <!-- No KK dan Nama Lengkap -->
                                                     <div class="form-group-inner">
                                                         <div class="row">
@@ -290,7 +290,7 @@
 
                                                     <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                         <div class="modal-area-button">
-                                                            <a class="Danger danger-color" href="<?= base_url('AdminDesa/datapenduduk')?>">Kembali</a>
+                                                            <a class="Danger danger-color" href="<?= base_url('desa/datapenduduk')?>">Kembali</a>
                                                             <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                         </div>
                                                     </div>

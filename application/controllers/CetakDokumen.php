@@ -11,12 +11,10 @@ class CetakDokumen extends CI_Controller {
         // Data login
             $this->session->userdata();
 
-        if($this->session->userdata('id_admin') == ""){
-            redirect(base_url("Login"));
+        if($this->session->userdata('id_akun') == ""){
+            redirect(base_url("Loginv2"));
         }
-        $this->load->view('CetakDokumen/Layout/head');
-        // $this->load->view('CetakDokumen/Layout/sidebar');
-        // $this->load->view('CetakDokumen/Layout/navbar');
+        $this->load->view('CetakDokumen/Layout/head');;
     }
 
     public function cetak_sdomisili($token_surat){
