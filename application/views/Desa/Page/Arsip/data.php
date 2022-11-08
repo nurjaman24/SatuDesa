@@ -11,15 +11,8 @@
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-                            <!-- <div id="toolbar">
-                                <select class="form-control dt-tb">
-                                    <option value="">Export Dasar</option>
-                                    <option value="all">Export Semua</option>
-                                    <option value="selected">Export Yang Dipilih</option>
-                                </select>
-                            </div> -->
                             <div class="">
-                                <a href="<?= base_url('AdminDesa/tambahdataarsip')?>" class="btn btn-success">Tambah Data</a>
+                                <a href="<?= base_url('desa/tambahdataarsip')?>" class="btn btn-success">Tambah Data</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="false" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">

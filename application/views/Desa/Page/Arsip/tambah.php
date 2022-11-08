@@ -14,7 +14,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="all-form-element-inner">
 
-                                                    <?= form_open_multipart('AdminDesa/prosestambaharsip'); ?>                                                    
+                                                    <?= form_open_multipart('desa/prosestambaharsip'); ?>                                                    
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
