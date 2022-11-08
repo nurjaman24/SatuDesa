@@ -560,22 +560,22 @@ class desa extends CI_Controller {
                         redirect('desa/pengajuan/');
                 }
                 
-                function dokumenselesai($id, $status, $token_surat){
-                    if ($status == "Selesai") {
-                        $updatestatus = "Dalam Proses";
-                        $tkn = "";
-                    }else {
-                        $updatestatus = "Selesai";
-                        $tkn = $token_surat;
-                    }
-                    $update_status_pengajuan = array(
-                        'token_surat' => $tkn,
-                        'status_pengajuan' => $updatestatus,
-                    );
-                    $where = array('id_pengajuan' => $id);
-                    $this->M_App->proses_update($where, $update_status_pengajuan, 'tb_pengajuan');
-                    redirect('desa/pengajuan/');
-                }
+                // function dokumenselesai($id, $status, $token_surat){
+                //     if ($status == "Selesai") {
+                //         $updatestatus = "Dalam Proses";
+                //         $tkn = "";
+                //     }else {
+                //         $updatestatus = "Selesai";
+                //         $tkn = $token_surat;
+                //     }
+                //     $update_status_pengajuan = array(
+                //         'token_surat' => $tkn,
+                //         'status_pengajuan' => $updatestatus,
+                //     );
+                //     $where = array('id_pengajuan' => $id);
+                //     $this->M_App->proses_update($where, $update_status_pengajuan, 'tb_pengajuan');
+                //     redirect('desa/pengajuan/');
+                // }
             
         // READ (DONE)
             // Data Pengajuan

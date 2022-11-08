@@ -139,7 +139,7 @@
                     $btncolor = "danger";
                 } ?>
             <!-- Tombol Untuk Mengupdate Status Pengajuan -->
-                <a class="Primary mg-b-10" href="<?= base_url("AdminDesa/dokumenselesai/".$tpeng->id_pengajuan."/".$tpeng->status_pengajuan."/".$token_surat)?>">
+                <a class="Primary mg-b-10" href="<?= base_url("desa/dokumenselesai/".$tpeng->id_pengajuan."/".$tpeng->status_pengajuan."/".$token_surat)?>">
                     <i class="btn btn-<?= $btncolor?> fa fa-file" title="Klik untuk membuat dokumen"> <?= $tpeng->status_pengajuan?></i>
                 </a>
                 <br>

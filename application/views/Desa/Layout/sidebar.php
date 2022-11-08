@@ -59,7 +59,8 @@
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('desa/arsipdokumen')?>" aria-expanded="false">
+                            <a title="Landing Page" href="#" aria-expanded="false">
+                            <!-- <a title="Landing Page" href="<?= base_url('desa/arsipdokumen')?>" aria-expanded="false"> -->
                                 <span class="educate-icon educate-department icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Arsip Dokumen</span>
                             </a>

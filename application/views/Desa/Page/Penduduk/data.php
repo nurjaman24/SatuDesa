@@ -80,6 +80,7 @@
                                     <?php }?>
                                 </tbody>
                             </table>
+                            <i><small style="font-size: 12px;"><code><b>Note : </b>Default password akun Rukun Warga "satudesa24"</code></small></i>
                         </div>
                     </div>
                 </div>
