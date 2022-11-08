@@ -72,6 +72,43 @@ class admin extends CI_Controller {
             $this->load->view('Admin/Page/Desa/data', $data);
             $this->load->view('Admin/Layout/footer');
         }
+
+        public function datarekappengajuan()
+        {   
+            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+
+            // $this->load->view('Admin/Page/Desa/data', $data);
+            $this->load->view('Admin/Page/DataRekapPengajuan/data');
+            $this->load->view('Admin/Layout/footer');
+        }
+
+        public function grafik()
+        {   
+            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+
+            // $this->load->view('Admin/Page/Desa/data', $data);
+            $this->load->view('Admin/Page/DataRekapPengajuan/grafik');
+            $this->load->view('Admin/Layout/footer');
+        }
+
+        public function laporan()
+        {   
+            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+
+            // $this->load->view('Admin/Page/Desa/data', $data);
+            $this->load->view('Admin/Page/Laporan/data');
+            $this->load->view('Admin/Layout/footer');
+        }
+
+        public function table()
+        {   
+            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+
+            // $this->load->view('Admin/Page/Desa/data', $data);
+            $this->load->view('Admin/Page/Laporan/table');
+            $this->load->view('Admin/Layout/footer');
+        }
+
         public function dataadmindesa()
         {
             $data['tb_admindesa'] = $this->M_App->tampil_data_join('tb_admindesa', 'tb_desa', 'tb_desa.id_desa = tb_admindesa.id_desa', 'id_admin','ASC')->result();
