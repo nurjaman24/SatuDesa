@@ -561,20 +561,20 @@ class desa extends CI_Controller {
                 }
                 
                 // function dokumenselesai($id, $status, $token_surat){
-                //     if ($status == "Selesai") {
-                //         $updatestatus = "Dalam Proses";
-                //         $tkn = "";
-                //     }else {
-                //         $updatestatus = "Selesai";
-                //         $tkn = $token_surat;
-                //     }
-                //     $update_status_pengajuan = array(
-                //         'token_surat' => $tkn,
-                //         'status_pengajuan' => $updatestatus,
-                //     );
-                //     $where = array('id_pengajuan' => $id);
-                //     $this->M_App->proses_update($where, $update_status_pengajuan, 'tb_pengajuan');
-                //     redirect('desa/pengajuan/');
+                    //     if ($status == "Selesai") {
+                    //         $updatestatus = "Dalam Proses";
+                    //         $tkn = "";
+                    //     }else {
+                    //         $updatestatus = "Selesai";
+                    //         $tkn = $token_surat;
+                    //     }
+                    //     $update_status_pengajuan = array(
+                    //         'token_surat' => $tkn,
+                    //         'status_pengajuan' => $updatestatus,
+                    //     );
+                    //     $where = array('id_pengajuan' => $id);
+                    //     $this->M_App->proses_update($where, $update_status_pengajuan, 'tb_pengajuan');
+                    //     redirect('desa/pengajuan/');
                 // }
             
         // READ (DONE)
@@ -601,6 +601,27 @@ class desa extends CI_Controller {
     // END PENGAJUAN
 
     // ARSIP DOKUMEN 
+        // CREATE
+            // Buat Dokumen ()
+            // Proses Insert ()
+        // READ ()
+            // Data Arsip Dokumen ()
+                public function arsipdokumen(){
+                    $id_desa = $this->session->userdata("id_relasi");
+                    $where = array('tb_penduduk.id_desa' => $id_desa);
+                    $data['tb_arsip'] = $this->M_App->tampil_data_join3_where('tb_arsip', 
+                    'tb_desa', 'tb_desa.id_desa = tb_arsip.id_desa', 
+                    'tb_penduduk', 'tb_penduduk.id_penduduk = tb_arsip.id_penduduk',
+                    'tb_jenis_dokumen', 'tb_jenis_dokumen.id_jenis = tb_arsip.id_jenis_dokumen', $where,'id_arsip_dokumen','ASC')->result();
+                    $this->load->view('Desa/Page/Arsip/data', $data);
+                    $this->load->view('Desa/Layout/footer');
+                }
+        // UPDATE 
+            // Form Update()
+            // Proses Update()
+        // DELETE
+            // Hapus Arsip Dokumen ()
+
     // END ARSIP DOKUMEN 
 // ==========================================================================================================================
     //     // Arsip
@@ -646,16 +667,6 @@ class desa extends CI_Controller {
     //         }
             
     // // Read =========================================================================================================
-    //     // Arsip
-    //         public function arsipdokumen(){
-    //             $id_desa = $this->session->userdata("id_desa");
-    //             $where = array('tb_penduduk.id_desa' => $id_desa);
-    //             $data['tb_arsip'] = $this->M_App->tampil_data_join3_where('tb_arsip', 'tb_desa', 'tb_desa.id_desa = tb_arsip.id_desa', 
-    //                                                                             'tb_penduduk', 'tb_penduduk.id_penduduk = tb_arsip.id_penduduk',
-    //                                                                             'tb_jenis_dokumen', 'tb_jenis_dokumen.id_jenis = tb_arsip.id_jenis_dokumen', $where,'id_arsip_dokumen','ASC')->result();
-    //             $this->load->view('Desa/Page/Arsip/data', $data);
-    //             $this->load->view('Desa/Layout/footer');
-    //         }
         
     // // Update =======================================================================================================
     //     // Arsip
