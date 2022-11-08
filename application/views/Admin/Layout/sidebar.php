@@ -7,12 +7,12 @@
             <hr>
             <div class="sidebar-header">
                 <a href="#">
-                    <div class="row">
+                    <div class="row" style="margin-left:2%;">
                         <img class="main-logo" src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" width="20%"/>
-                        <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="50%"/>
+                        <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="55%"/>
                     </div>
                 </a>
-                <strong><a href="#"><img src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" alt="" width="50%"/></a></strong>
+                <strong><a href="#"><img src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" alt="" width="45%"/></a></strong>
             </div>
             <hr>
 
