@@ -91,10 +91,10 @@
                                                 <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                     <div class="modal-area-button">
                                                         <a class="Danger danger-color" href="<?= base_url('Admin/datadesa')?>">Kembali</a>
-                                                        <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
+                                                        <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#ModalEditDesa">Simpan</a>
                                                     </div>
                                                 </div>
-                                                <div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+                                                <div id="ModalEditDesa" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-close-area modal-close-df">

@@ -55,10 +55,10 @@
     <link rel="stylesheet" href="<?= base_url('asset/css/form/all-type-forms.css')?>">
     <!-- style CSS	============================================ -->
     <link rel="stylesheet" href="<?= base_url('asset/style.css')?>">
-    <!--  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
     <!-- responsive CSS	============================================ -->
     <link rel="stylesheet" href="<?= base_url('asset/css/responsive.css')?>">
+    <!-- Other CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">  -->
     <!-- modernizr JS ============================================ -->
     <script src="<?= base_url('asset/js/vendor/modernizr-2.8.3.min.js')?>"></script>
 

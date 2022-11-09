@@ -41,8 +41,8 @@ class Loginv2 extends CI_Controller {
             $this->session->set_userdata($datalogin);
             header('location:'.base_url().$data->level.'/beranda');
         }else{
-            echo "Tidak Masuk";
-            // header('location:'.base_url().'Login');
+            // echo "Tidak Masuk";
+            header('location:'.base_url().'Loginv2');
         }
 
     }

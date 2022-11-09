@@ -3,9 +3,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <footer class="fixed-bottom">
+                            <footer class="">
                                 <p>Copyright © 2022. All rights reserved. Developer by <a href="#/">STT YBSI</a></p>
-                            <!-- </footer> -->
+                            </footer>
                         </div>
                     </div>
                 </div>

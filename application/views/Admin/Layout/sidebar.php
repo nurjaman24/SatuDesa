@@ -7,9 +7,9 @@
             <hr>
             <div class="sidebar-header">
                 <a href="#">
-                    <div class="row" style="margin-left:2%;">
+                    <div class="row">
                         <img class="main-logo" src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" width="20%"/>
-                        <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="55%"/>
+                        <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="50%"/>
                     </div>
                 </a>
                 <strong><a href="#"><img src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" alt="" width="45%"/></a></strong>
@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li>
-                            <a title="Data Admin Desa" href="<?= base_url('admin/datarekappengajuan')?>" aria-expanded="false">
+                            <a title="Data Admin Desa" href="<?= base_url('admin/datarekapitulasi')?>" aria-expanded="false">
                                 <span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Rekapitulasi Transaksi</span>
                             </a>

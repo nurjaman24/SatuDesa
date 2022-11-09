@@ -15,7 +15,7 @@
                                 <a href="<?= base_url('desa/tambahdataarsip')?>" class="btn btn-success">Tambah Data</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="false" data-cookie="true"
-                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+                                data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="state" data-checkbox="true"></th>
@@ -49,8 +49,8 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <!-- <a href="<?= base_url('AdminDesa/detail_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-edit btn btn-primary"></i></a>  -->
-                                            <a href="<?= base_url('AdminDesa/hapus_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-trash btn btn-danger"></i></a>
+                                            <!-- <a href="<?= base_url('desa/detail_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-edit btn btn-primary"></i></a>  -->
+                                            <a href="<?= base_url('desa/hapus_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-trash btn btn-danger"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>

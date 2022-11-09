@@ -5,8 +5,6 @@ class desa extends CI_Controller {
     function __construct(){
         parent::__construct();
         // Data login
-            $this->session->userdata();
-
             if($this->session->userdata('id_akun') == ""){
                 redirect(base_url("Loginv2"));
             }elseif (!empty($this->session->userdata('id_akun'))){
@@ -18,16 +16,17 @@ class desa extends CI_Controller {
         $this->load->view('Desa/Layout/sidebar');
         $this->load->view('Desa/Layout/navbar');
     }
+    // Beranda Desa
+        public function beranda(){
+            $id_desa = $this->session->userdata('id_relasi');
+            $where = array('id_desa' => $id_desa);
+            $data['tb_desa'] = $this->M_App->edit_data('tb_desa',$where)->result();
 
-    public function beranda(){
-        $id_desa = $this->session->userdata('id_relasi');
-        $where = array('id_desa' => $id_desa);
-        $data['tb_desa'] = $this->M_App->edit_data('tb_desa',$where)->result();
-
-        $this->load->view('Desa/Page/beranda',$data);
-        $this->load->view('Desa/Layout/footer');
-    }
-
+            $this->load->view('Desa/Page/beranda',$data);
+            $this->load->view('Desa/Layout/footer');
+        }
+    // END Beranda Desa
+// ==========================================================================================================================    
     // RUKUN WARGA (DONE)
         // CREATE
             // Formulir Menggunakan Pop Up Modal (DONE)
@@ -309,56 +308,56 @@ class desa extends CI_Controller {
     // END PENDUDUK
 
     // JENIS DOKUMEN
-            // CREATE
-                // Formulir Insert (DONE)
-                    public function tambahdatajenisdokumen(){
-                        $data['tb_jenis_dokumen'] = $this->M_App->tampil_data('tb_jenis_dokumen','id_jenis','ASC')->result();
-                        $this->load->view('Desa/Page/Jenisdokumen/tambah', $data);
-                        $this->load->view('Desa/Layout/footer');
-                    }
-                // Proses insert
-                    // Jenis Dokumen (DONE)
-                        public function prosestambahjenisdokumen(){
-                            $jenis_dokumen = $this->input->post('jenis_dokumen');
-                            $persyaratan = $this->input->post('persyaratan');
-                            
-                            $data = array(
-                                'jenis_dokumen' => $jenis_dokumen,
-                                'persyaratan' => $persyaratan,
-                            
-                            );
-                            $this->M_App->simpan_data('tb_jenis_dokumen', $data);
-                            redirect('desa/jenisdokumen/');
-                        }
-
-            // READ (DONE)
-                public function jenisdokumen(){
+        // CREATE
+            // Formulir Insert (DONE)
+                public function tambahdatajenisdokumen(){
                     $data['tb_jenis_dokumen'] = $this->M_App->tampil_data('tb_jenis_dokumen','id_jenis','ASC')->result();
-                    $this->load->view('Desa/Page/Jenisdokumen/data', $data);
+                    $this->load->view('Desa/Page/Jenisdokumen/tambah', $data);
                     $this->load->view('Desa/Layout/footer');
                 }
-            // UPDATE
-                // Formulir Ubah Data Jenis Dokumen (DONE)
-                    function edit_jenis($id_jenis){
-                        $where = array('id_jenis' => $id_jenis);
-                        $data['tb_jenis_dokumen'] = $this->M_App->edit_data('tb_jenis_dokumen',$where)->result();
-                        $this->load->view('Desa/Page/Jenisdokumen/edit',$data);
-                        $this->load->view('Desa/Layout/footer');
-                    }
-                // Proses Ubah (DONE)
-                    function prosesubahjenis(){
-                        $id_jenis = $this->input->post('id_jenis');
+            // Proses insert
+                // Jenis Dokumen (DONE)
+                    public function prosestambahjenisdokumen(){
                         $jenis_dokumen = $this->input->post('jenis_dokumen');
                         $persyaratan = $this->input->post('persyaratan');
+                        
                         $data = array(
                             'jenis_dokumen' => $jenis_dokumen,
-                            'persyaratan' => $persyaratan
+                            'persyaratan' => $persyaratan,
+                        
                         );
-                        $where = array('id_jenis' => $id_jenis);
-                        $this->M_App->proses_update($where, $data, 'tb_jenis_dokumen');
-                        redirect('desa/jenisdokumen');
+                        $this->M_App->simpan_data('tb_jenis_dokumen', $data);
+                        redirect('desa/jenisdokumen/');
                     }
-            // DELETE
+
+        // READ (DONE)
+            public function jenisdokumen(){
+                $data['tb_jenis_dokumen'] = $this->M_App->tampil_data('tb_jenis_dokumen','id_jenis','ASC')->result();
+                $this->load->view('Desa/Page/Jenisdokumen/data', $data);
+                $this->load->view('Desa/Layout/footer');
+            }
+        // UPDATE
+            // Formulir Ubah Data Jenis Dokumen (DONE)
+                function edit_jenis($id_jenis){
+                    $where = array('id_jenis' => $id_jenis);
+                    $data['tb_jenis_dokumen'] = $this->M_App->edit_data('tb_jenis_dokumen',$where)->result();
+                    $this->load->view('Desa/Page/Jenisdokumen/edit',$data);
+                    $this->load->view('Desa/Layout/footer');
+                }
+            // Proses Ubah (DONE)
+                function prosesubahjenis(){
+                    $id_jenis = $this->input->post('id_jenis');
+                    $jenis_dokumen = $this->input->post('jenis_dokumen');
+                    $persyaratan = $this->input->post('persyaratan');
+                    $data = array(
+                        'jenis_dokumen' => $jenis_dokumen,
+                        'persyaratan' => $persyaratan
+                    );
+                    $where = array('id_jenis' => $id_jenis);
+                    $this->M_App->proses_update($where, $data, 'tb_jenis_dokumen');
+                    redirect('desa/jenisdokumen');
+                }
+        // DELETE
                 // Hapus Data Jenis Dokumen(DONE)
                     function hapus_jenis($id_jenis){
                         $where = array('id_jenis' => $id_jenis);
@@ -602,7 +601,7 @@ class desa extends CI_Controller {
 
     // ARSIP DOKUMEN 
         // CREATE
-            // upload Dokumen ()
+            // upload Dokumen (Done)
                 public function tambahdataarsip(){
                     $id_desa = $this->session->userdata('id_relasi');
                     $where = array('id_desa' => $id_desa);
@@ -614,37 +613,37 @@ class desa extends CI_Controller {
                     $this->load->view('Desa/Layout/footer');
                 }
             
-            // Proses Insert ()
-            function prosestambaharsip(){
-                // $id_desa = $this->input->post('id_desa');
-                $id_penduduk = $this->input->post('id_penduduk');
-                $id_jenis_dokumen = $this->input->post('id_jenis_dokumen');
-                // Upload Gambar
-                $config['upload_path']      = 'asset/arsip';
-                $config['allowed_types']    = 'pdf|doc|docx|gif|jpg|png|jpeg';
-                $config['max_size']         = 999999999;
-                $config['max_width']        = 999999999;
-                $config['max_height']       = 999999999;
-                $config['encrypt_name']     = TRUE;
+            // Proses Insert (Done)
+                function prosestambaharsip(){
+                    // $id_desa = $this->input->post('id_desa');
+                    $id_penduduk = $this->input->post('id_penduduk');
+                    $id_jenis_dokumen = $this->input->post('id_jenis_dokumen');
+                    // Upload Gambar
+                    $config['upload_path']      = 'asset/arsip';
+                    $config['allowed_types']    = 'pdf|doc|docx|gif|jpg|png|jpeg';
+                    $config['max_size']         = 999999999;
+                    $config['max_width']        = 999999999;
+                    $config['max_height']       = 999999999;
+                    $config['encrypt_name']     = TRUE;
+                
+                    $this->load->library('upload',$config);
             
-                $this->load->library('upload',$config);
-        
-                if (!$this->upload->do_upload('file_dokumen')) {
-                    $pesan = $this->upload->display_errors();
+                    if (!$this->upload->do_upload('file_dokumen')) {
+                        $pesan = $this->upload->display_errors();
+                    }
+                    $berkas = $this->upload->data('file_name');
+            
+                    $data = array(
+                        // 'id_desa' => $id_desa,
+                        'id_penduduk' => $id_penduduk,
+                        'id_jenis_dokumen' => $id_jenis_dokumen,
+                        'file_dokumen' => $berkas,
+                    );
+                    $this->M_App->simpan_data('tb_arsip', $data);
+                    redirect('desa/arsipdokumen');
                 }
-                $berkas = $this->upload->data('file_name');
-        
-                $data = array(
-                    // 'id_desa' => $id_desa,
-                    'id_penduduk' => $id_penduduk,
-                    'id_jenis_dokumen' => $id_jenis_dokumen,
-                    'file_dokumen' => $berkas,
-                );
-                $this->M_App->simpan_data('tb_arsip', $data);
-                redirect('desa/arsipdokumen');
-            }
-        // READ ()
-            // Data Arsip Dokumen ()
+        // READ (Done)
+            // Data Arsip Dokumen
                 public function arsipdokumen(){
                     $id_desa = $this->session->userdata("id_relasi");
                     $where = array('tb_penduduk.id_desa' => $id_desa);
@@ -655,187 +654,31 @@ class desa extends CI_Controller {
                     $this->load->view('Desa/Page/Arsip/data', $data);
                     $this->load->view('Desa/Layout/footer');
                 }
-        // UPDATE 
-            // Form Update()
-            // Proses Update()
-        // DELETE
-            // Hapus Arsip Dokumen ()
+        // DELETE (Done)
+            // Hapus Arsip Dokumen
+                function hapus_arsip($id_arsip){
+                    $where = array('id_arsip_dokumen' => $id_arsip);
+                    
+                    $data = array(
+                        'file_dokumen' => null,
+                    );
+
+                    
+                    $data2 = $this->M_App->getDataByID($where, 'tb_arsip')->row();
+                    $nama = 'asset/arsip/'.$data2->file_dokumen;
+                    
+                    if (is_readable($nama) && unlink($nama)) { 
+                        // Hapus File
+                        $this->M_App->hapus_file($where, $data, 'tb_arsip');
+                        // Hapus Data
+                        $this->M_App->hapus_data('tb_arsip', $where);
+                        redirect('desa/arsipdokumen/');
+                    }else {
+                        echo "Gagal";
+                    }
+                }
 
     // END ARSIP DOKUMEN 
-// ==========================================================================================================================
+// ==========================================================================================================================    
 
-            
-    // // Read =========================================================================================================
-        
-    // // Update =======================================================================================================
-    //     // Arsip
-    //         public function detail_arsip($id_arsip){
-    //             $kondisi = array('id_arsip_dokumen' => $id_arsip);
-    //             $data['tb_arsip'] = $this->M_App->edit_data_join3('tb_arsip',   'tb_desa', 'tb_desa.id_desa = tb_arsip.id_desa', 
-    //                                                                             'tb_penduduk', 'tb_penduduk.id_penduduk = tb_arsip.id_penduduk',
-    //                                                                             'tb_jenis_dokumen', 'tb_jenis_dokumen.id_jenis = tb_arsip.id_jenis_dokumen',
-    //                                                                             $kondisi
-    //                                                             )->result();
-    //             $this->load->view('Desa/Page/Arsip/detail', $data);
-    //             $this->load->view('Desa/Layout/footer');
-    //         }
-
-    // // Delete =======================================================================================================
-    //     // Arsip
-    //         function hapus_arsip($id_arsip){
-    //             $where = array('id_arsip_dokumen' => $id_arsip);
-                
-    //             $data = array(
-    //                 'file_dokumen' => null,
-    //             );
-
-                
-    //             $data2 = $this->M_App->getDataByID($where, 'tb_arsip')->row();
-    //             $nama = 'asset/arsip/'.$data2->file_dokumen;
-                
-    //             if (is_readable($nama) && unlink($nama)) { 
-    //                 // Hapus File
-    //                 $this->M_App->hapus_file($where, $data, 'tb_arsip');
-    //                 // Hapus Data
-    //                 $this->M_App->hapus_data('tb_arsip', $where);
-    //                 redirect('AdminDesa/arsipdokumen/');
-    //             }else {
-    //                 echo "Gagal";
-    //             }
-    //         }
-
-    // // Upload data ==================================================================================================
-        // Berkas Penduduk
-            // Upload KTP
-            //     function upload_KTP(){
-            //         $id_penduduk = $this->input->post('id_penduduk');
-            //         // Upload Gambar
-            //         $config['upload_path']      = 'asset/img/penduduk/KTP';
-            //         $config['allowed_types']    = 'gif|jpg|png|jpeg|pdf';
-            //         $config['max_size']         = 999999999;
-            //         $config['max_width']        = 999999999;
-            //         $config['max_height']       = 999999999;
-                
-            //         $this->load->library('upload',$config);
-            
-            //         if (!$this->upload->do_upload('upload_ktp')) {
-            //             $pesan = $this->upload->display_errors();
-            //         }
-            //         $berkas = $this->upload->data('file_name');
-            
-            //         $data = array(
-            //             'upload_ktp' => $berkas,
-            //         );
-            //         $where = array('id_penduduk' => $id_penduduk);
-            //         $this->M_App->proses_update($where, $data, 'tb_penduduk');
-            //         redirect('AdminDesa/datapenduduk');
-            //     }
-
-            //     function hapus_file_KTP($id){
-            //         $where = array('id_penduduk' => $id);
-            //         $data = array(
-            //             'upload_ktp' => null,
-            //         );
-
-                    
-            //         $data2 = $this->M_App->getDataByID($where, 'tb_penduduk')->row();
-            //         $nama = 'asset/img/penduduk/KTP/'.$data2->upload_ktp;
-                    
-            //         if (is_readable($nama) && unlink($nama)) { 
-            //             $delete = $this->M_App->hapus_file($where, $data, 'tb_penduduk');
-            //             echo "Berhasil";
-            //             redirect('AdminDesa/datapenduduk');
-            //         }else {
-            //             echo "Gagal";
-            //         }
-            //     }
-        
-            // // Upload KK
-            //     function upload_KK(){
-            //         $id_penduduk = $this->input->post('id_penduduk');
-            //         // Upload Gambar
-            //         $config['upload_path']      = 'asset/img/penduduk/KK';
-            //         $config['allowed_types']    = 'gif|jpg|png|jpeg|pdf';
-            //         $config['max_size']         = 999999999;
-            //         $config['max_width']        = 999999999;
-            //         $config['max_height']       = 999999999;
-                
-            //         $this->load->library('upload',$config);
-            
-            //         if (!$this->upload->do_upload('upload_kk')) {
-            //             $pesan = $this->upload->display_errors();
-            //         }
-            //         $berkas = $this->upload->data('file_name');
-            
-            //         $data = array(
-            //             'upload_kk' => $berkas,
-            //         );
-            //         $where = array('id_penduduk' => $id_penduduk);
-            //         $this->M_App->proses_update($where, $data, 'tb_penduduk');
-            //         redirect('AdminDesa/datapenduduk');
-            //     }
-
-            //     function hapus_file_KK($id){
-            //         $where = array('id_penduduk' => $id);
-            //         $data = array(
-            //             'upload_kk' => null,
-            //         );
-
-                    
-            //         $data2 = $this->M_App->getDataByID($where, 'tb_penduduk')->row();
-            //         $nama = 'asset/img/penduduk/KK/'.$data2->upload_kk;
-                    
-            //         if (is_readable($nama) && unlink($nama)) { 
-            //             $delete = $this->M_App->hapus_file($where, $data, 'tb_penduduk');
-            //             echo "Berhasil";
-            //             redirect('AdminDesa/datapenduduk');
-            //         }else {
-            //             echo "Gagal";
-            //         }
-            //     }
-            // // Upload Poto
-            //     function upload_Poto(){
-            //         $id_penduduk = $this->input->post('id_penduduk');
-            //         // Upload Gambar
-            //         $config['upload_path']      = 'asset/img/penduduk/Poto';
-            //         $config['allowed_types']    = 'gif|jpg|png|jpeg';
-            //         $config['max_size']         = 999999999;
-            //         $config['max_width']        = 999999999;
-            //         $config['max_height']       = 999999999;
-                
-            //         $this->load->library('upload',$config);
-            
-            //         if (!$this->upload->do_upload('upload_poto')) {
-            //             $pesan = $this->upload->display_errors();
-            //         }
-            //         $berkas = $this->upload->data('file_name');
-            
-            //         $data = array(
-            //             'upload_poto' => $berkas,
-            //         );
-            //         $where = array('id_penduduk' => $id_penduduk);
-            //         $this->M_App->proses_update($where, $data, 'tb_penduduk');
-            //         redirect('AdminDesa/datapenduduk');
-            //     }
-
-            //     function hapus_file_Poto($id){
-            //         $where = array('id_penduduk' => $id);
-            //         $data = array(
-            //             'upload_poto' => null,
-            //         );
-
-                    
-            //         $data2 = $this->M_App->getDataByID($where, 'tb_penduduk')->row();
-            //         $nama = 'asset/img/penduduk/Poto/'.$data2->upload_poto;
-                    
-            //         if (is_readable($nama) && unlink($nama)) { 
-            //             $delete = $this->M_App->hapus_file($where, $data, 'tb_penduduk');
-            //             echo "Berhasil";
-            //             redirect('AdminDesa/datapenduduk');
-            //         }else {
-            //             echo "Gagal";
-            //         }
-            //     }
-
-    
 }
