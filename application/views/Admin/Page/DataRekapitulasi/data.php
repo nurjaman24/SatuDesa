@@ -26,7 +26,7 @@
                                                     foreach ($n_penduduk as $Penduduk);
                                                 ?>
                                                 <h2><span class="counter"><?= $Penduduk->jumlah?></span> Jiwa <span class="tuition-fees">Penduduk</span></h2>
-                                                <a href="<?= base_url("admin/grafikrekapitulasi")?>" class="btn btn-primary ">Lihat Grafik</a>
+                                                <a href="<?= base_url("admin/grafikrekapitulasi/".$desa->id_desa)?>" class="btn btn-primary ">Lihat Grafik</a>
                                             </div>
                                         </div>
                                     </div>

@@ -67,6 +67,30 @@ class admin extends CI_Controller {
                     $this->M_App->simpan_data('tb_akun', $data);
                     redirect('admin/datadesa/');
                 }
+            // Proses Insert Logo Desa (DONE)
+                function upload_logo_desa(){
+                    $id_desa = $this->input->post('id_desa');
+                    // Upload Gambar
+                    $config['upload_path']      = 'asset/img/logo';
+                    $config['allowed_types']    = 'gif|jpg|png|jpeg';
+                    $config['max_size']         = 999999999;
+                    $config['max_width']        = 999999999;
+                    $config['max_height']       = 999999999;
+                
+                    $this->load->library('upload',$config);
+            
+                    if (!$this->upload->do_upload('upload_logo_desa')) {
+                        $pesan = $this->upload->display_errors();
+                    }
+                    $berkas = $this->upload->data('file_name');
+            
+                    $data = array(
+                        'logo_desa' => $berkas,
+                    );
+                    $where = array('id_desa' => $id_desa);
+                    $this->M_App->proses_update($where, $data, 'tb_desa');
+                    redirect('Admin/datadesa');
+                }
         // READ   (DONE)
             public function datadesa(){   
                 $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
@@ -126,6 +150,25 @@ class admin extends CI_Controller {
                     // Redirect Halaman ke Data Desa
                     redirect('admin/datadesa/');
                 }
+            // Hapus Logo Desa
+                function hapus_file_logo($id){
+                    $where = array('id_desa' => $id);
+                    $data = array(
+                        'logo_desa' => null,
+                    );
+
+                    
+                    $data2 = $this->M_App->getDataByID($where, 'tb_desa')->row();
+                    $nama = 'asset/img/logo/'.$data2->logo_desa;
+                    
+                    if (is_readable($nama) && unlink($nama)) { 
+                        $delete = $this->M_App->hapus_file($where, $data, 'tb_desa');
+                        echo "Berhasil";
+                        redirect('Admin/datadesa');
+                    }else {
+                        echo "Gagal";
+                    }
+                }
     // END DESA
     
     // REKAPITULASI TRANSAKSI DESA
@@ -163,11 +206,28 @@ class admin extends CI_Controller {
 
         
 
-        public function grafik(){   
-            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+        public function grafikrekapitulasi($id_desa){   
+            $nm_tabel = "tb_pengajuan";
+            // Tabel Penduduk
+            $nm_tabel_join = "tb_penduduk";
+            $on = "tb_penduduk.id_penduduk = tb_pengajuan.id_penduduk";
+            // Tabel Desa
+            $nm_tabel_join2 = "tb_desa";
+            $on2 = "tb_desa.id_desa = tb_penduduk.id_desa";
+            // Tabel Jenis Dokumen
+            $nm_tabel_join3 = "tb_jenis_dokumen";
+            $on3 = "tb_jenis_dokumen.id_jenis = tb_pengajuan.id_jenis";
+
+            $kondisi = array('tb_penduduk.id_desa' => $id_desa);
+
+            $data['tb_grafikrekap'] = $this->M_App->tampil_data_join3_where($nm_tabel, 
+                $nm_tabel_join, $on, 
+                $nm_tabel_join2, $on2,
+                $nm_tabel_join3, $on3,
+                $kondisi,"id_pengajuan","ASC")->result();
 
             // $this->load->view('Admin/Page/Desa/data', $data);
-            $this->load->view('Admin/Page/DataRekapPengajuan/grafik');
+            $this->load->view('Admin/Page/DataRekapitulasi/grafikrekap', $data);
             $this->load->view('Admin/Layout/footer');
         }
 
@@ -187,62 +247,11 @@ class admin extends CI_Controller {
             $this->load->view('Admin/Layout/footer');
         }
 
-        public function dataadmindesa(){
-            $data['tb_admindesa'] = $this->M_App->tampil_data_join('tb_admindesa', 'tb_desa', 'tb_desa.id_desa = tb_admindesa.id_desa', 'id_admin','ASC')->result();
+        // public function dataadmindesa(){
+        //     $data['tb_admindesa'] = $this->M_App->tampil_data_join('tb_admindesa', 'tb_desa', 'tb_desa.id_desa = tb_admindesa.id_desa', 'id_admin','ASC')->result();
 
-            $this->load->view('Admin/Page/AdminDesa/data', $data);
-            $this->load->view('Admin/Layout/footer');
-        }
-    // Update =======================================================================================================
-        // Desa
-        
-
-    // Delete =======================================================================================================
-        
-    // Upload data ==================================================================================================
-        // Berkas Penduduk
-            // Upload Logo Desa
-            function upload_logo_desa(){
-                $id_desa = $this->input->post('id_desa');
-                // Upload Gambar
-                $config['upload_path']      = 'asset/img/logo';
-                $config['allowed_types']    = 'gif|jpg|png|jpeg';
-                $config['max_size']         = 999999999;
-                $config['max_width']        = 999999999;
-                $config['max_height']       = 999999999;
-            
-                $this->load->library('upload',$config);
-        
-                if (!$this->upload->do_upload('upload_logo_desa')) {
-                    $pesan = $this->upload->display_errors();
-                }
-                $berkas = $this->upload->data('file_name');
-        
-                $data = array(
-                    'logo_desa' => $berkas,
-                );
-                $where = array('id_desa' => $id_desa);
-                $this->M_App->proses_update($where, $data, 'tb_desa');
-                redirect('Admin/datadesa');
-            }
-
-            function hapus_file_logo($id){
-                $where = array('id_desa' => $id);
-                $data = array(
-                    'logo_desa' => null,
-                );
-
-                
-                $data2 = $this->M_App->getDataByID($where, 'tb_desa')->row();
-                $nama = 'asset/img/logo/'.$data2->logo_desa;
-                
-                if (is_readable($nama) && unlink($nama)) { 
-                    $delete = $this->M_App->hapus_file($where, $data, 'tb_desa');
-                    echo "Berhasil";
-                    redirect('Admin/datadesa');
-                }else {
-                    echo "Gagal";
-                }
-            }
+        //     $this->load->view('Admin/Page/AdminDesa/data', $data);
+        //     $this->load->view('Admin/Layout/footer');
+        // }
 
 }
