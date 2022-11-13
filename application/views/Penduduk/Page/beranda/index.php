@@ -69,7 +69,7 @@
                                                                 Buat Catatan 
                                                                 </div> -->
                                                                 <div class="modal-body">
-                                                                    <form action="<?= base_url('Warga/updatekontak')?>" method="post">
+                                                                    <form action="<?= base_url('penduduk/updatekontak')?>" method="post">
                                                                         <input type="text" name="id_penduduk" value="<?= $tpro->id_penduduk?>" hidden>
                                                                         <input type="tel" class="form-control" name="no_handphone_aktif" required maxlength="20" minlength="13" placeholder="6282128262881" value="<?= $tpro->no_handphone_aktif?>">
                                                                         <hr>

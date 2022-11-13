@@ -4,38 +4,40 @@
     <!-- Start Left menu area -->
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
-            <div class="sidebar-header">
-                <a href="#">
-                    <div class="row">
-                        <img class="main-logo" src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" width="20%"/>
-                        <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="60%"/>
-                    </div>
-                </a>
-                <strong><a href="#"><img src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" alt="" width="60%"/></a></strong>
-            </div>
+            <hr>
+                <div class="sidebar-header">
+                    <a href="#">
+                        <div class="row">
+                            <img class="main-logo" src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" width="20%"/>
+                            <img class="main-logo" src="<?= base_url('asset/img/logo/ImageTextSatuDesa.png')?>" width="50%"/>
+                        </div>
+                    </a>
+                    <strong><a href="#"><img src="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>" alt="" width="50%"/></a></strong>
+                </div>
+            <hr>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li>
-                            <a title="Landing Page" href="<?= base_url('Warga/beranda')?>" aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('penduduk/beranda')?>" aria-expanded="false">
                                 <span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> 
-                                <span class="mini-click-non">Profile</span>
+                                <span class="mini-click-non">Beranda</span>
                             </a>
                         </li>
                         <!-- <li>
-                            <a title="Landing Page" href="<?= base_url('Warga/persyaratan')?>"aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('penduduk/persyaratan')?>"aria-expanded="false">
                                 <span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Persyaratan</span>
                             </a>
                         </li> -->
                         <li>
-                            <a title="Landing Page" href="<?= base_url('Warga/tambahpengajuan')?>"aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('penduduk/pengajuan')?>"aria-expanded="false">
                                 <span class="educate-icon educate-apps icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Buat Pengajuan</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('Warga/pengajuan')?>" aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('penduduk/trackingpengajuan')?>" aria-expanded="false">
                                 <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Tracking Pengajuan</span>
                             </a>

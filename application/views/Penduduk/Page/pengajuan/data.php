@@ -49,8 +49,12 @@
                                             <?= $tpeng->jenis_dokumen?>
                                         </td>
                                         <td>
+                                            Alamat Pengiriman Dokumen: <br>
+                                            <b><?= $tpeng->alamat_pengiriman?><br></b>
+                                            <hr>
                                             Catatan : <br>
-                                            <?= $tpeng->keterangan?>
+                                            <?= $tpeng->keterangan?><br>
+                                            
                                         </td>
                                         <td>
                                             <?= $tpeng->status_pengajuan?><br>
@@ -64,10 +68,10 @@
                                             <hr>
                                             <?= $tpeng->penyerahan_dokumen?>
                                             <?php 
-                                            if ($tpeng->penyerahan_dokumen == "Diantar Ke Luar Desa"){
+                                            if ($tpeng->penyerahan_dokumen == "Ambil Sendiri"){
                                                 
                                             } else {
-                                              echo "($tpeng->biaya)";  
+                                              echo "Rp. ($tpeng->biaya)";  
                                             }
                                             ?>
                                             
@@ -88,7 +92,7 @@
                                                                 Buat Catatan 
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form action="<?= base_url('Warga/simpancatatan')?>" method="post">
+                                                                    <form action="<?= base_url('penduduk/simpancatatan')?>" method="post">
                                                                         <input type="text" name="id_pengajuan" value="<?= $tpeng->id_pengajuan?>" hidden>
                                                                         <textarea name="keterangan" id="keterangan" class="form-control" cols="50" rows="10"><?= $tpeng->keterangan?></textarea>
                                                                         <br>

@@ -5,7 +5,7 @@
                         <div class="sparkline12-list">
                             <div class="sparkline12-hd">
                                 <div class="main-sparkline12-hd">
-                                    <h1>Tambah Data Arsip </h1>
+                                    <h1>Upload Dokumen Baru</h1>
                                 </div>
                             </div>
                             <div class="sparkline12-graph">

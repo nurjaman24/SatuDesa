@@ -12,7 +12,9 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div class="">
-                                <a href="<?= base_url('desa/tambahdataarsip')?>" class="btn btn-success">Tambah Data</a>
+                                <a href="<?= base_url('desa/tambahdataarsip')?>" class="btn btn-success">
+                                <i class="fa fa-upload"></i> Upload Arsip Dokumen Baru
+                                </a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="false" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">

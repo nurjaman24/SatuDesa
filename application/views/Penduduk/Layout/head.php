@@ -2,13 +2,13 @@
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SADESA - Warga Desa | Satu Pintu Administrasi Desa</title>
+    <title>Penduduk | Satu Pintu Dokumen Desa (Satu Desa)</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('asset/img/logo/logosn.png')?>">
+    <!-- favicon	============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('asset/img/logo/IconBaruSatuDesa.png')?>">
     <!-- Google Fonts ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS	============================================ -->

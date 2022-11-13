@@ -184,6 +184,31 @@ class admin extends CI_Controller {
                     $this->load->view('Admin/Page/DataRekapitulasi/data', $data);
                     $this->load->view('Admin/Layout/footer');
                 }
+            // Tampilakan Grafik
+                public function grafikrekapitulasi($id_desa){   
+                    $nm_tabel = "tb_pengajuan";
+                    // Tabel Penduduk
+                    $nm_tabel_join = "tb_penduduk";
+                    $on = "tb_penduduk.id_penduduk = tb_pengajuan.id_penduduk";
+                    // Tabel Desa
+                    $nm_tabel_join2 = "tb_desa";
+                    $on2 = "tb_desa.id_desa = tb_penduduk.id_desa";
+                    // Tabel Jenis Dokumen
+                    $nm_tabel_join3 = "tb_jenis_dokumen";
+                    $on3 = "tb_jenis_dokumen.id_jenis = tb_pengajuan.id_jenis";
+        
+                    $kondisi = array('tb_penduduk.id_desa' => $id_desa);
+        
+                    $data['tb_grafikrekap'] = $this->M_App->tampil_data_join3_where($nm_tabel, 
+                        $nm_tabel_join, $on, 
+                        $nm_tabel_join2, $on2,
+                        $nm_tabel_join3, $on3,
+                        $kondisi,"id_pengajuan","ASC")->result();
+        
+                    // $this->load->view('Admin/Page/Desa/data', $data);
+                    $this->load->view('Admin/Page/DataRekapitulasi/grafikrekap', $data);
+                    $this->load->view('Admin/Layout/footer');
+                }
         // UPDATE ()
             // Formulir Update ()
             // Proses Update ()
@@ -204,48 +229,21 @@ class admin extends CI_Controller {
 // =======================================================================================================================
     // Read =========================================================================================================
 
-        
+        // public function laporan(){   
+        //     // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
 
-        public function grafikrekapitulasi($id_desa){   
-            $nm_tabel = "tb_pengajuan";
-            // Tabel Penduduk
-            $nm_tabel_join = "tb_penduduk";
-            $on = "tb_penduduk.id_penduduk = tb_pengajuan.id_penduduk";
-            // Tabel Desa
-            $nm_tabel_join2 = "tb_desa";
-            $on2 = "tb_desa.id_desa = tb_penduduk.id_desa";
-            // Tabel Jenis Dokumen
-            $nm_tabel_join3 = "tb_jenis_dokumen";
-            $on3 = "tb_jenis_dokumen.id_jenis = tb_pengajuan.id_jenis";
+        //     // $this->load->view('Admin/Page/Desa/data', $data);
+        //     $this->load->view('Admin/Page/Laporan/data');
+        //     $this->load->view('Admin/Layout/footer');
+        // }
 
-            $kondisi = array('tb_penduduk.id_desa' => $id_desa);
+        // public function table(){   
+        //     // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
 
-            $data['tb_grafikrekap'] = $this->M_App->tampil_data_join3_where($nm_tabel, 
-                $nm_tabel_join, $on, 
-                $nm_tabel_join2, $on2,
-                $nm_tabel_join3, $on3,
-                $kondisi,"id_pengajuan","ASC")->result();
-
-            // $this->load->view('Admin/Page/Desa/data', $data);
-            $this->load->view('Admin/Page/DataRekapitulasi/grafikrekap', $data);
-            $this->load->view('Admin/Layout/footer');
-        }
-
-        public function laporan(){   
-            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
-
-            // $this->load->view('Admin/Page/Desa/data', $data);
-            $this->load->view('Admin/Page/Laporan/data');
-            $this->load->view('Admin/Layout/footer');
-        }
-
-        public function table(){   
-            // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
-
-            // $this->load->view('Admin/Page/Desa/data', $data);
-            $this->load->view('Admin/Page/Laporan/table');
-            $this->load->view('Admin/Layout/footer');
-        }
+        //     // $this->load->view('Admin/Page/Desa/data', $data);
+        //     $this->load->view('Admin/Page/Laporan/table');
+        //     $this->load->view('Admin/Layout/footer');
+        // }
 
         // public function dataadmindesa(){
         //     $data['tb_admindesa'] = $this->M_App->tampil_data_join('tb_admindesa', 'tb_desa', 'tb_desa.id_desa = tb_admindesa.id_desa', 'id_admin','ASC')->result();

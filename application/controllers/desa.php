@@ -207,12 +207,25 @@ class desa extends CI_Controller {
                             redirect('desa/datapenduduk/');
                         }
         // READ (DONE)
+            // Data Penduduk
             public function datapenduduk(){
                 $id_desa = $this->session->userdata("id_relasi");
                 $where = array('tb_penduduk.id_desa' => $id_desa);
                 $data['tb_penduduk'] = $this->M_App->tampil_data_join_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where, 'id_penduduk','ASC')->result();
                 $this->load->view('Desa/Page/Penduduk/data', $data);
                 $this->load->view('Desa/Layout/footer');
+            }
+            // Detail Data Penduduk
+            public function detail_penduduk($id_penduduk){
+                $id_desa = $this->session->userdata("id_relasi");
+                $where = array(
+                    'tb_penduduk.id_desa' => $id_desa,
+                    'tb_penduduk.id_penduduk' => $id_penduduk
+                );
+                $data['tb_penduduk'] = $this->M_App->tampil_data_join_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where, 'id_penduduk','ASC')->result();
+                $this->load->view('Desa/Page/Penduduk/detail', $data);
+                $this->load->view('Desa/Layout/footer');
+                
             }
         // UPDATE
             // Formulir Ubah Data Penduduk (DONE)
