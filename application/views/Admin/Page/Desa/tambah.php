@@ -31,7 +31,7 @@
                                                         <label class="login2 pull-right pull-right-pro">Nama Kepala Desa<code>*</code></label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="text" class="form-control" name="nama_kepala_desa" required maxlength="40" placeholder="" onkeyup="this.value = this.value.toUpperCase();"/>
+                                                        <input type="text" class="form-control" name="nama_kepala_desa" required maxlength="40" placeholder="Contoh : NURJAMAN, S.T" onkeyup="this.value = this.value.toUpperCase();"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                                                         <label class="login2 pull-right pull-right-pro">Alamat Email Desa<code>*</code></label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="email" class="form-control" name="email_desa" required maxlength="40"/>
+                                                        <input type="email" class="form-control" name="email_desa" placeholder="Contoh : alamatemaildesa@gmail.com" required maxlength="40"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,29 +85,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <div class="">
                                                 <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                     <div class="modal-area-button">
-                                                        <a class="Danger danger-color" href="<?= base_url('admin/datadesa')?>">Kembali</a>
-                                                        <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
-                                                    </div>
-                                                </div>
-                                                <div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-close-area modal-close-df">
-                                                                <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <i class="educate-icon educate-checked modal-check-pro"></i>
-                                                                <!-- <h2>Yakin !</h2> -->
-                                                                <p>Pastikan semua data sudah terisi dengan benar !!</p>
-                                                                <!-- <code>Data yang sudah disimpan tidak dapat diubah.</code> -->
-                                                            </div>
-                                                            <div class="modal-footer text-center">
-                                                                <button class="btn btn-md btn-primary" type="submit">Tetap Simpan</button>
-                                                            </div>
-                                                        </div>
+                                                        <button class="btn btn-md btn-primary" type="submit">Simpan Perubahan</button>
                                                     </div>
                                                 </div>
                                             </div>
