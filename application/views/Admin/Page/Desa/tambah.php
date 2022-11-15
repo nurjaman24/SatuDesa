@@ -5,7 +5,7 @@
                 <div class="sparkline12-list">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>Tambah Data Desa</h1>
+                            <h1>Tambah Desa</h1>
                         </div>
                     </div>
                     <hr>
