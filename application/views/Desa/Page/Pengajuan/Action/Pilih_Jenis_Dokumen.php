@@ -20,6 +20,7 @@
     elseif ($tpeng->jenis_dokumen == "SURAT KETERANGAN TIDAK MAMPU") {
         $jenisfungsicetak = "cetak_sktm";
     }
+    
     else{
         $jenisfungsicetak = ""; 
     }

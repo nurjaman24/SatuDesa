@@ -393,7 +393,7 @@ class desa extends CI_Controller {
                         $token_surat = $this->input->post('token_surat');
                     
                     // Data Umum
-                        $id_desa = $this->input->post('id_desa');
+                        // $id_desa = $this->input->post('id_desa');
                         $id_penduduk = $this->input->post('id_penduduk');
                         $nomor_surat = $this->input->post('nomor_surat');
                         $tempat_keluar = $this->input->post('tempat_keluar');
@@ -531,6 +531,7 @@ class desa extends CI_Controller {
                                     'nomor_surat' => $nomor_surat,
                                     'token_surat' => $token_surat,
                                     'tanggal_surat' => $tanggal_surat,
+                                    // Data POST Spesial
                                     'tanggal_kematian' => $tanggal_kematian,
                                     'tempat_kematian' => $tempat_kematian,
                                     'kecamatan_kematian' => $kecamatan_kematian,

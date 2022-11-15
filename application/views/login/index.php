@@ -46,8 +46,15 @@
     <body>
         <?php
             $pesan = "Hallo Admin, Saya Mau Daftar Akun Warga, Bagaimana Caranya?";
-            foreach ($tb_desa as $tdes);
-            $telepon = $tdes->telepon_desa;
+            $telepon = null;
+            if (var_dump($tb_desa) == null){
+                echo "Array Kosong";
+            }else{
+                echo "Array Terisi";
+                // foreach ($tb_desa as $tdes)
+                //     $telepon = $tdes->telepon_desa;
+            }
+
         ?>
         <div class="error-pagewrap">
             <div class="error-page-int">
