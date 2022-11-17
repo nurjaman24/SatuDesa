@@ -50,21 +50,6 @@
                                                     <!-- Input Token Surat -->
                                                     <input type="hidden" class="form-control" name="token_surat" required value="<?= $token_surat?>"/>
                                                 </div>     
-                                            <!-- Nama Desa -->
-                                            <!-- <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <label class="login2 pull-left pull-left-pro">Nama Desa/Kelurahan <code>*</code></label>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="form-select-list">
-                                                            <select class="form-control custom-select-value" name="id_desa" required maxlength="" >
-                                                                <option value="<?= $tpeng->id_desa?>"><?= $tpeng->nama_desa?></option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                                             <!-- Nama Penduduk -->
                                             <div class="form-group-inner">
                                                 <div class="row">

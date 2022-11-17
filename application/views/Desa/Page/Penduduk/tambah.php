@@ -242,7 +242,14 @@
                                                                 <h2>/</h2>
                                                             </div>
                                                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-5" >
-                                                                <input type="number" class="form-control" name="rukun_warga" required maxlength="5" placeholder="" onkeyup="this.value = this.value.toUpperCase();"/>
+                                                                <select name="rukun_warga" class="form-control" required>
+                                                                    <?php
+                                                                        foreach($tb_rukun_warga as $trw){
+                                                                    ?>
+                                                                        <option value="<?= $trw->rukun_warga?>"><?= $trw->rukun_warga?></option>
+                                                                    <?php }?>
+                                                                </select>
+                                                                <!-- <input type="number" class="form-control" name="rukun_warga" required maxlength="5" placeholder="" onkeyup="this.value = this.value.toUpperCase();"/> -->
                                                             </div>
                                                         </div>
                                                     </div>

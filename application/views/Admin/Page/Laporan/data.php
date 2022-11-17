@@ -5,14 +5,15 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="sparkline13-list">
-                    <div class="sparkline13-hd">
+                    <h1>COMMING SOON</h1>
+                    <!-- <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
                             <h1>Laporan</h1>
                             <code>Fungsional Belum Jalan dan UI/UX Belum Rapih</code>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <form class="mt-5">
+                    <!-- <form class="mt-5">
                         <div class="form-row">
                             <div class="form-group col-md-6 offset-3">
                                 <label for="kabupaten">Kabupaten</label>
@@ -49,6 +50,7 @@
                                 </div>
                             </div>
                         </div>
+                    </form> -->
                 </div>
 
             </div>

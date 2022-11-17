@@ -11,6 +11,14 @@ class Loginv2 extends CI_Controller {
         $this->load->view('login/index',$data);
     }
 
+    function registrasi(){
+        // Membuat Array Data Desa
+        // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+        
+        // Menampilkan View Halaman Login
+        $this->load->view('login/registrasi');
+    }
+
 	// Pengecekan login
 	function auth(){
         $relasi = 'admin';

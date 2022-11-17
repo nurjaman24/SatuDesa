@@ -131,6 +131,8 @@ class desa extends CI_Controller {
                     $id_desa = $this->session->userdata("id_relasi");
                     $where = array('id_desa' => $id_desa);
                     $data['tb_desa'] = $this->M_App->tampil_data_where('tb_desa', $where, 'id_desa','ASC')->result();
+                    // Tampilkan Data RW
+                    $data['tb_rukun_warga'] = $this->M_App->tampil_data_where('tb_rukun_warga', $where, 'id_rukun_warga','ASC')->result();
                     $this->load->view('Desa/Page/Penduduk/tambah', $data);
                     $this->load->view('Desa/Layout/footer');
                 }
@@ -230,8 +232,13 @@ class desa extends CI_Controller {
         // UPDATE
             // Formulir Ubah Data Penduduk (DONE)
                 function edit_penduduk($id_penduduk){
+                    $id_desa = $this->session->userdata("id_relasi");
+                    $wheredesa = array('id_desa' => $id_desa);
+                    $data['tb_desa'] = $this->M_App->tampil_data_where('tb_desa', $wheredesa, 'id_desa','ASC')->result();
+                    $data['tb_rukun_warga'] = $this->M_App->tampil_data_where('tb_rukun_warga', $wheredesa, 'id_rukun_warga','ASC')->result();
+
+                    // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
                     $where = array('id_penduduk' => $id_penduduk);
-                    $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
                     $data['tb_penduduk'] = $this->M_App->edit_data_join('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where)->result();
                     $this->load->view('Desa/Page/Penduduk/edit',$data);
                     $this->load->view('Desa/Layout/footer');
@@ -457,7 +464,6 @@ class desa extends CI_Controller {
                         // SK Domisili
                             if ($nama_tabel == "tb_sdomisili") {
                                 $data = array(
-                                    'id_desa' => $id_desa,
                                     'id_penduduk' => $id_penduduk,
                                     'nomor_surat' => $nomor_surat,
                                     'token_surat' => $token_surat,
@@ -469,7 +475,7 @@ class desa extends CI_Controller {
                         // SK Belum Menikah
                             elseif ($nama_tabel == "tb_sbmenikah"){
                                 $data = array(
-                                    'id_desa' => $id_desa,
+                                    // 'id_desa' => $id_desa,
                                     'id_penduduk' => $id_penduduk,
                                     'nomor_surat' => $nomor_surat,
                                     'token_surat' => $token_surat,

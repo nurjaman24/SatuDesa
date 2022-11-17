@@ -19,7 +19,7 @@ class CetakDokumen extends CI_Controller {
 
     public function cetak_sdomisili($token_surat){
         $where = array('token_surat' => $token_surat);
-        $data['tb_sdomisili'] = $this->M_App->edit_data_join2('tb_sdomisili', 'tb_desa', 'tb_desa.id_desa = tb_sdomisili.id_desa', 'tb_penduduk', 'tb_penduduk.id_penduduk = tb_sdomisili.id_penduduk', $where)->result();
+        $data['tb_sdomisili'] = $this->M_App->edit_data_join2('tb_sdomisili', 'tb_penduduk', 'tb_penduduk.id_penduduk = tb_sdomisili.id_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where)->result();
 
         $this->load->view('CetakDokumen/Jenis/surat_keterangan_domisili',$data);
         $this->load->view('CetakDokumen/Layout/footer');

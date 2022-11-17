@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | Satu Pintu Dokumen Desa (Satu Desa)</title>
+    <title>Pendaftaran Akun Baru | Satu Pintu Dokumen Desa (Satu Desa)</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon	============================================ -->
@@ -63,7 +63,8 @@
                 <div class="content-error">
                     <div class="hpanel">
                         <div class="panel-body">
-                            <form method="post" action="<?= base_url('Loginv2/auth'); ?>">
+                            <h4>Pendaftaran Akun Belum Tersedia</h4>
+                            <!-- <form method="post" action="<?= base_url('Loginv2/auth'); ?>">
                                 <div class="form-group">
                                     <label class="control-label" for="username">Nama Pengguna <code>*</code></label>
                                     <input type="text" placeholder="Contoh : adminsadesa" title="Masukan Nama Pengguna" 
@@ -78,13 +79,10 @@
                                     <input type="checkbox" onclick="myFunction()"> Tampilkan Password
                                 </div>
                                 <button class="btn btn-success btn-block loginbtn" type="submit">Login</button>
-                            </form>
+                            </form> -->
                         </div>
                         <div class="panel-footer">
-                            Belum Punya Akun ?
-                            <a class="" href="<?= base_url("Loginv2/registrasi")?>">Klik Disini</a>
-                            <!-- <a class="" href="https://api.whatsapp.com/send?phone=<?= $telepon?>&text=<?= $pesan?>">Klik Disini</a> -->
-                            <!--<a class="badge badge-primary btn btn-sm" href="<?= base_url('Login/register')?>">Daftar Disini</a>-->
+                            Sudah Punya Akun ? <a class="" href="<?= base_url("Loginv2")?>">Masuk Akun</a>
                         </div>
                     </div>
                 </div>

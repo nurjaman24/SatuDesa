@@ -220,6 +220,13 @@ class admin extends CI_Controller {
             // Formulir Insert ()
             // Proses Insert ()
         // READ ()
+            public function laporan(){   
+                // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+
+                // $this->load->view('Admin/Page/Desa/data', $data);
+                $this->load->view('Admin/Page/Laporan/data');
+                $this->load->view('Admin/Layout/footer');
+            }
         // UPDATE ()
             // Formulir Update ()
             // Proses Update ()
@@ -229,13 +236,6 @@ class admin extends CI_Controller {
 // =======================================================================================================================
     // Read =========================================================================================================
 
-        // public function laporan(){   
-        //     // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
-
-        //     // $this->load->view('Admin/Page/Desa/data', $data);
-        //     $this->load->view('Admin/Page/Laporan/data');
-        //     $this->load->view('Admin/Layout/footer');
-        // }
 
         // public function table(){   
         //     // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();

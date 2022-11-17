@@ -258,7 +258,15 @@
                                                         <h2>/</h2>
                                                     </div>
                                                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-5" >
-                                                        <input value="<?= $tpen->rukun_warga?>" type="number" class="form-control" name="rukun_warga" required maxlength="5" placeholder="" onkeyup="this.value = this.value.toUpperCase();"/>
+                                                        <select name="rukun_warga" class="form-control" required>
+                                                            <option class="bg bg-primary" value="<?= $tpen->rukun_warga?>"><?= $tpen->rukun_warga?></option>
+                                                            <option value="">---</option>
+                                                            <?php
+                                                                foreach($tb_rukun_warga as $trw){
+                                                            ?>
+                                                                <option value="<?= $trw->rukun_warga?>"><?= $trw->rukun_warga?></option>
+                                                            <?php }?>
+                                                        </select>    
                                                     </div>
                                                 </div>
                                             </div>
