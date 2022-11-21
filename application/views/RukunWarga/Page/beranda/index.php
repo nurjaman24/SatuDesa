@@ -24,7 +24,15 @@
                                         <tr><td>Alamat Kantor Desa</td> <td><?= $tpro->alamat_desa." ".$tpro->kecamatan_desa." ".$tpro->kabupaten_desa?></td></tr>
                                         <tr><td>Alamat Email Desa</td> <td><?= $tpro->email_desa?></td></tr>
                                         <tr><td>Kontak Desa</td> <td><?= $tpro->telepon_desa?></td></tr>
-                                        <tr><td>Indentitas RW</td> <td><?= $tpro->rukun_warga. " - ".$tpro->identitas."<br>".$tpro->nip_nik." - ".$tpro->nama_ketua_rw?></td></tr>
+                                        <tr><td>Indentitas RW</td> <td><?= "RW - ".$tpro->no_rukun_warga. " ".$tpro->identitas."<br>".$tpro->nip_nik." - ".$tpro->nama_ketua_rw?></td></tr>
+                                        <tr><td>Jumlah Penduduk</td> 
+                                            <td><?php 
+                                                $ndata = $this->db->query("SELECT COUNT(id_penduduk) AS N_Data FROM tb_penduduk where rukun_warga = $tpro->no_rukun_warga")->result();
+                                                foreach($ndata as $jumlah){
+                                                    echo $jumlah->N_Data."&nbsp;Penduduk";
+                                                }
+                                            ?></td>
+                                        </tr>
                                     </h1>
                                 </table>
                             <?php }?>

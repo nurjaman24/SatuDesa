@@ -17,6 +17,22 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Nama Penduduk<code>*</code></label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <select name="id_penduduk" class="form-control" required>
+                                                            <?php
+                                                                foreach($tb_penduduk as $tp){
+                                                            ?>
+                                                                <option value="<?= $tp->id_penduduk?>">NIK : <?= $tp->nik?> | <?= $tp->nama?></option>
+                                                            <?php }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Nama Persyaratan<code>*</code></label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">

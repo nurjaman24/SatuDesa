@@ -42,7 +42,7 @@ class desa extends CI_Controller {
                         $data = array(
                             'id_desa' => $id_desa,
                             'identitas' => $identitas,
-                            'rukun_warga' => $rukun_warga,
+                            'no_rukun_warga' => $rukun_warga,
                             'nama_ketua_rw' => $nama_ketua_rw,
                             'nip_nik' => $nip_nik
                         );
@@ -92,7 +92,7 @@ class desa extends CI_Controller {
                     $data = array(
                         'id_desa' => $id_desa,
                         'identitas' => $identitas,
-                        'rukun_warga' => $rukun_warga,
+                        'no_rukun_warga' => $rukun_warga,
                         'nama_ketua_rw' => $nama_ketua_rw,
                         'nip_nik' => $nip_nik
                     );
@@ -213,7 +213,7 @@ class desa extends CI_Controller {
             public function datapenduduk(){
                 $id_desa = $this->session->userdata("id_relasi");
                 $where = array('tb_penduduk.id_desa' => $id_desa);
-                $data['tb_penduduk'] = $this->M_App->tampil_data_join_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where, 'id_penduduk','ASC')->result();
+                $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
                 $this->load->view('Desa/Page/Penduduk/data', $data);
                 $this->load->view('Desa/Layout/footer');
             }
@@ -224,7 +224,7 @@ class desa extends CI_Controller {
                     'tb_penduduk.id_desa' => $id_desa,
                     'tb_penduduk.id_penduduk' => $id_penduduk
                 );
-                $data['tb_penduduk'] = $this->M_App->tampil_data_join_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where, 'id_penduduk','ASC')->result();
+                $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
                 $this->load->view('Desa/Page/Penduduk/detail', $data);
                 $this->load->view('Desa/Layout/footer');
                 
@@ -239,7 +239,7 @@ class desa extends CI_Controller {
 
                     // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
                     $where = array('id_penduduk' => $id_penduduk);
-                    $data['tb_penduduk'] = $this->M_App->edit_data_join('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where)->result();
+                    $data['tb_penduduk'] = $this->M_App->edit_data_join2('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where)->result();
                     $this->load->view('Desa/Page/Penduduk/edit',$data);
                     $this->load->view('Desa/Layout/footer');
                 }

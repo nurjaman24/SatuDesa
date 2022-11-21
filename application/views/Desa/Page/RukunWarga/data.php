@@ -87,7 +87,7 @@
                                     <tr>
                                         <td><?=  $trw->nama_desa?></td>
                                         <td><?=  $trw->identitas?></td>
-                                        <td><?=  $trw->rukun_warga?></td>
+                                        <td><?=  $trw->no_rukun_warga?></td>
                                         <td><?=  $trw->nama_ketua_rw?></td>
                                         <td><?=  $trw->nip_nik?></td>
                                         <td>

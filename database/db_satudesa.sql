@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 15 Nov 2022 pada 15.30
+-- Waktu pembuatan: 17 Nov 2022 pada 21.23
 -- Versi server: 5.7.33
 -- Versi PHP: 7.4.19
 
@@ -40,7 +40,11 @@ CREATE TABLE `tb_akun` (
 --
 
 INSERT INTO `tb_akun` (`id_akun`, `id_relasi`, `username`, `password`, `level`) VALUES
-(1, 1, 'satudesa24', 'c22df9b49c142fa65590ec07f0492bac', 'admin');
+(1, 1, 'satudesa24', 'c22df9b49c142fa65590ec07f0492bac', 'admin'),
+(54, 4, 'DESALINGGASIRNA', 'c22df9b49c142fa65590ec07f0492bac', 'desa'),
+(58, 7, 'FAJARHIDAYATULOH', 'c22df9b49c142fa65590ec07f0492bac', 'penduduk'),
+(59, 5, 'AJIDSOLEHUDIN', 'c22df9b49c142fa65590ec07f0492bac', 'penduduk'),
+(64, 1, 'Cisompok', 'c22df9b49c142fa65590ec07f0492bac', 'rw');
 
 -- --------------------------------------------------------
 
@@ -73,6 +77,13 @@ CREATE TABLE `tb_desa` (
   `telepon_desa` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tb_desa`
+--
+
+INSERT INTO `tb_desa` (`id_desa`, `logo_desa`, `nama_desa`, `nama_kepala_desa`, `alamat_desa`, `kecamatan_desa`, `kabupaten_desa`, `email_desa`, `telepon_desa`) VALUES
+(4, 'Logo_Kab_Tasik1.png', 'DESA LINGGASIRNA', 'CECEP SUDRAJAT', 'Jalan Padakaria No. 03 Dusun Bojong Kode Pos 46465', 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', 'desa.linggasirna@gmail.com', '6282128262881');
+
 -- --------------------------------------------------------
 
 --
@@ -84,6 +95,13 @@ CREATE TABLE `tb_jenis_dokumen` (
   `jenis_dokumen` varchar(70) NOT NULL,
   `persyaratan` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_jenis_dokumen`
+--
+
+INSERT INTO `tb_jenis_dokumen` (`id_jenis`, `jenis_dokumen`, `persyaratan`) VALUES
+(4, 'SURAT KETERANGAN DOMISILI', 'Tidak Ada Persyaratan');
 
 -- --------------------------------------------------------
 
@@ -120,6 +138,17 @@ CREATE TABLE `tb_penduduk` (
   `no_handphone_aktif` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tb_penduduk`
+--
+
+INSERT INTO `tb_penduduk` (`id_penduduk`, `no_kk`, `nama`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pendidikan`, `jenis_pekerjaan`, `golongan_darah`, `status_perkawinan`, `tanggal_perkawinan`, `status_hubungan_dalam_keluarga`, `kewarganegaraan`, `no_paspor`, `no_kitap`, `ayah`, `ibu`, `alamat`, `rukun_tetangga`, `rukun_warga`, `id_desa`, `kecamatan`, `kabupaten`, `no_handphone_aktif`) VALUES
+(5, '11111111111111111111', 'AJID SOLEHUDIN', '11111111111111111111', 'LAKI-LAKI', 'MAJALENGKA', '2000-09-13', 'ISLAM', 'DIPLOMA IV / STRATA I', 'MAHASISWA', 'B-', 'BELUM KAWIN', '0000-00-00', 'ANAK', 'WNI', 'W346ED73', '2424', 'NAMA AYAH', 'NAMA IBU', 'KP. BANTAR KALONG CISOMPOK', '01', '1', 4, 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', '6281927164253'),
+(6, '22222222222222222222', 'NURJAMAN', '22222222222222222222', 'LAKI-LAKI', 'TASIKMALAYA', '2001-09-24', 'ISLAM', 'DIPLOMA IV / STRATA I', 'MAHASISWA', 'O+', 'BELUM KAWIN', '0000-00-00', 'ANAK', 'WNI', 'W346ED24', '87652', 'LILI', 'EHA JULAEHA', 'KP. BANTAR KALONG RANDEGAN', '01', '1', 4, 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', '62821282628812'),
+(7, '33333333333333333333', 'FAJAR HIDAYATULOH', '33333333333333333333', 'LAKI-LAKI', 'TASIKMALAYA', '2004-03-14', 'ISLAM', 'DIPLOMA IV / STRATA I', 'MAHASISWA', 'B-', 'BELUM KAWIN', '0000-00-00', 'ANAK', 'WNI', 'W346ED32', '87634', 'NAMA AYAH', 'NAMA IBU', 'KP. BANTAR KALONG BOJONG', '02', '3', 4, 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', '6281927164192'),
+(8, '44444444444444444444', 'ABDUL HOLIK', '44444444444444444444', 'LAKI-LAKI', 'TASIKMALAYA', '2001-05-13', 'ISLAM', 'DIPLOMA IV / STRATA I', 'MAHASISWA', 'B-', 'BELUM KAWIN', '0000-00-00', 'ANAK', 'WNI', 'W346ED22', '87622', 'NAMA AYAH', 'NAMA IBU', 'KP. BANTAR KALONG SUKASARI', '03', '4', 4, 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', '6281927164234'),
+(9, '55555555555555555555', 'RUDI HERMAWAN', '55555555555555555555', 'LAKI-LAKI', 'TASIKMALAYA', '1998-09-12', 'ISLAM', 'DIPLOMA I / II', 'DOSEN', 'B+', 'BELUM KAWIN', '0000-00-00', 'ANAK', 'WNI', 'W346ED11', '87611', 'NAMA AYAH', 'NAMA IBU', 'KP. BANTAR KALONG CIKADU', '13', '5', 4, 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', '6282128262123');
+
 -- --------------------------------------------------------
 
 --
@@ -138,6 +167,13 @@ CREATE TABLE `tb_pengajuan` (
   `alamat_pengiriman` longtext NOT NULL,
   `biaya` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_pengajuan`
+--
+
+INSERT INTO `tb_pengajuan` (`id_pengajuan`, `tgl_pengajuan`, `id_penduduk`, `id_jenis`, `status_pengajuan`, `penyerahan_dokumen`, `token_surat`, `keterangan`, `alamat_pengiriman`, `biaya`) VALUES
+(1, '16-11-2022 01:13:57', 5, 4, 'Selesai', 'Ambil Sendiri', 'TKSN1544', 'Estimasi Selesai Kapan?', 'KP. BANTAR KALONG CISOMPOK RT/RW 01/01 DESA LINGGASIRNA KECAMATAN SARIWANGI KABUPATEN TASIKMALAYA', 0);
 
 -- --------------------------------------------------------
 
@@ -162,10 +198,22 @@ CREATE TABLE `tb_rukun_warga` (
   `id_rukun_warga` int(11) NOT NULL,
   `id_desa` int(11) NOT NULL,
   `identitas` varchar(20) NOT NULL,
-  `rukun_warga` char(11) NOT NULL,
+  `no_rukun_warga` char(11) NOT NULL,
   `nama_ketua_rw` varchar(20) NOT NULL,
   `nip_nik` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_rukun_warga`
+--
+
+INSERT INTO `tb_rukun_warga` (`id_rukun_warga`, `id_desa`, `identitas`, `no_rukun_warga`, `nama_ketua_rw`, `nip_nik`) VALUES
+(1, 4, 'Cisompok', '01', 'Ketua RW 01', '123456'),
+(2, 4, 'Randegan', '02', 'Ketua RW 02', '123456'),
+(3, 4, 'Bojong', '03', 'Ketua RW 03', '123456'),
+(4, 4, 'Sukasari', '04', 'Ketua RW 04', '123456'),
+(5, 4, 'Cikadu', '05', 'Ketua RW 05', '123456'),
+(9, 4, 'Linggasirna', '06', 'Nurjaman', '123456');
 
 -- --------------------------------------------------------
 
@@ -175,13 +223,19 @@ CREATE TABLE `tb_rukun_warga` (
 
 CREATE TABLE `tb_sdomisili` (
   `id_surat` int(11) NOT NULL,
-  `id_desa` int(11) NOT NULL,
   `id_penduduk` int(11) NOT NULL,
   `nomor_surat` varchar(40) NOT NULL,
   `token_surat` varchar(40) NOT NULL,
   `tanggal_surat` varchar(40) NOT NULL,
   `alamat` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_sdomisili`
+--
+
+INSERT INTO `tb_sdomisili` (`id_surat`, `id_penduduk`, `nomor_surat`, `token_surat`, `tanggal_surat`, `alamat`) VALUES
+(4, 5, '221/01/DESA/XI/2022', 'TKSN1544', 'Linggasirna, 15 November 2022', 'KP. BANTAR KALONG CISOMPOK 01/01 DESA LINGGASIRNA KECAMATAN SARIWANGI KABUPATEN TASIKMALAYA');
 
 -- --------------------------------------------------------
 
@@ -269,7 +323,6 @@ ALTER TABLE `tb_rukun_warga`
 ALTER TABLE `tb_sdomisili`
   ADD PRIMARY KEY (`id_surat`),
   ADD UNIQUE KEY `nomor_surat` (`nomor_surat`),
-  ADD KEY `id_desa` (`id_desa`),
   ADD KEY `id_penduduk` (`id_penduduk`);
 
 --
@@ -289,7 +342,7 @@ ALTER TABLE `tb_sktm`
 -- AUTO_INCREMENT untuk tabel `tb_akun`
 --
 ALTER TABLE `tb_akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_arsip`
@@ -301,25 +354,25 @@ ALTER TABLE `tb_arsip`
 -- AUTO_INCREMENT untuk tabel `tb_desa`
 --
 ALTER TABLE `tb_desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jenis_dokumen`
 --
 ALTER TABLE `tb_jenis_dokumen`
-  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
-  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_persyaratan`
@@ -331,13 +384,13 @@ ALTER TABLE `tb_persyaratan`
 -- AUTO_INCREMENT untuk tabel `tb_rukun_warga`
 --
 ALTER TABLE `tb_rukun_warga`
-  MODIFY `id_rukun_warga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rukun_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sdomisili`
 --
 ALTER TABLE `tb_sdomisili`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sktm`
@@ -385,7 +438,6 @@ ALTER TABLE `tb_rukun_warga`
 -- Ketidakleluasaan untuk tabel `tb_sdomisili`
 --
 ALTER TABLE `tb_sdomisili`
-  ADD CONSTRAINT `tb_sdomisili_ibfk_1` FOREIGN KEY (`id_desa`) REFERENCES `tb_desa` (`id_desa`),
   ADD CONSTRAINT `tb_sdomisili_ibfk_2` FOREIGN KEY (`id_penduduk`) REFERENCES `tb_penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

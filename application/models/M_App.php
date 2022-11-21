@@ -7,6 +7,13 @@
             // Mendapatkan nilai dari hasil pemeriksaan 
                 return $this->db->get_where($nm_tabel,$kondisi);
         }
+        // Menghitung Jumlah Data
+        public function HitungData($id_data, $nm_table, $kondisi){
+            $this->db->select('COUNT('.$id_data.') AS N_Data');
+            $this->db->from($nm_table);
+            $this->db->where($kondisi);
+            return $this->db->get();
+        }
         // Create ========================================================================================
             // Menambahkan Data ke Database
             public function simpan_data($nm_table, $data){
@@ -52,6 +59,15 @@
                 $this->db->order_by($field, $order);
                 return $query = $this->db->get();
                 
+            }
+            public function tampil_data_join2_where($nm_tabel, $nm_tabel_join, $on, $nm_tabel_join2, $on2, $kondisi,$field,$order){
+                $this->db->select('*');
+                $this->db->from($nm_tabel);
+                $this->db->join($nm_tabel_join, $on);
+                $this->db->join($nm_tabel_join2, $on2);
+                $this->db->where($kondisi);
+                $this->db->order_by($field, $order);
+                return $query = $this->db->get();
             }
             public function tampil_data_join3($nm_tabel, $nm_tabel_join, $on, $nm_tabel_join2, $on2, $nm_tabel_join3, $on3,$field,$order){
                 $this->db->select('*');

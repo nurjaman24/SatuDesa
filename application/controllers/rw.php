@@ -16,31 +16,43 @@ class rw extends CI_Controller {
         $this->load->view('RukunWarga/Layout/sidebar');
         $this->load->view('RukunWarga/Layout/navbar');
     }
-    // Beranda
+    // BERANDA
         // READ
             // Biodata dan Persyaratan
                 public function beranda(){
                     $id_rukun_warga = $this->session->userdata('id_relasi');
                     $where = array('id_rukun_warga' => $id_rukun_warga);
-                    $data['tb_profile'] = $this->M_App->edit_data_join('tb_rukun_warga', 'tb_desa', 'tb_desa.id_desa = tb_rukun_warga.id_desa', $where)->result();
-                    // $data['tb_persyaratan'] = $this->M_App->edit_data('tb_persyaratan',$where)->result();
+                    $data['tb_profile'] = $this->M_App->edit_data_join('tb_rukun_warga', 'tb_desa', 'tb_desa.id_desa = tb_rukun_warga.id_desa', $where)->result();                
 
                     $this->load->view('RukunWarga/Page/beranda/index',$data);
                     $this->load->view('RukunWarga/Layout/footer');
                 }
         // UPDATE
-            // Ubah Kontak
-                function updatekontak(){
-                    $id_penduduk = $this->input->post('id_penduduk');
-                    $no_handphone_aktif = $this->input->post('no_handphone_aktif');
-                    $data = array(
-                        'no_handphone_aktif' => $no_handphone_aktif,
-                    );
-                    $where = array('id_penduduk' => $id_penduduk);
-                    $this->M_App->proses_update($where, $data, 'tb_penduduk');
-                    redirect('Penduduk/beranda');
-                }
-    // End Beranda
+            
+    // End BERANDA
+
+    // PENDUDUK
+        // READ
+            public function penduduk(){
+                $id_rukun_warga = $this->session->userdata("id_relasi");
+                $where = array('tb_penduduk.rukun_warga' => $id_rukun_warga);
+                $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa','tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
+                $this->load->view('RukunWarga/Page/Penduduk/data',$data);
+                $this->load->view('RukunWarga/Layout/footer');
+            }
+            // Detail 
+            public function detail_penduduk($id_penduduk){
+                $id_rukun_warga = $this->session->userdata("id_relasi");
+                $where = array(
+                    'tb_penduduk.rukun_warga' => $id_rukun_warga,
+                    'tb_penduduk.id_penduduk' => $id_penduduk
+                );
+                $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
+                $this->load->view('RukunWarga/Page/Penduduk/detail', $data);
+                $this->load->view('RukunWarga/Layout/footer');
+                
+            }
+    // END PENDUDUK
 
     // BUAT PENGAJUAN, JENIS DOKUMEN & PERSYARATAN
         // CREATE
@@ -79,9 +91,13 @@ class rw extends CI_Controller {
             // Upload Persyaratan (DONE)
                 // Formulir
                     public function tambahpersyaratan(){
+                        $id_rukun_warga = $this->session->userdata("id_relasi");
+                        $where = array('tb_penduduk.rukun_warga' => $id_rukun_warga);
+                        $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa','tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
+                        
                         $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
-                        $this->load->view('Penduduk/Page/persyaratan/tambah', $data);
-                        $this->load->view('Penduduk/Layout/footer');
+                        $this->load->view('RukunWarga/Page/persyaratan/tambah', $data);
+                        $this->load->view('RukunWarga/Layout/footer');
                     }
                 // Proses Upload
                     public function prosestambahpersyaratan(){

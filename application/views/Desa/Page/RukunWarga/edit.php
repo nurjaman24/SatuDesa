@@ -32,7 +32,7 @@
                                                 <br>
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12">
-                                                        <input type="text" name="rukun_warga" value="<?= $trw->rukun_warga?>" placeholder="Rukun Warga" class="form-control" maxlength="10" required>
+                                                        <input type="text" name="rukun_warga" value="<?= $trw->no_rukun_warga?>" placeholder="Rukun Warga" class="form-control" maxlength="10" required>
                                                     </div>
                                                 </div>
                                                 <br>

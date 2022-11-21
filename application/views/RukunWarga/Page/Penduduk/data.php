@@ -32,7 +32,7 @@
                                         <th data-field="jenis_pekerjaan" >Jenis Pekerjaan</th>
                                         <th data-field="hp" >No Handphone</th>
                                         <th data-field="akun_penduduk">Akun Penduduk</th>
-                                        <th data-field="action">Detail | Ubah | Hapus</th>
+                                        <th data-field="action">Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,27 +58,24 @@
                                                     foreach ($akunrw as $arw) { ?>
                                                         <?= $arw->username;?><br>
                                                         Level : <?= $arw->level;?><br>
-                                                        <a href="<?= base_url('desa/hapusakunpenduduk/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
+                                                        <!-- <a href="<?= base_url('desa/hapusakunpenduduk/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
                                                         <i class="fa fa-trash"></i>
-                                                        Hapus Akun
+                                                        Hapus Akun -->
                                                     </a>
                                             <?php
                                                     } 
                                                 } else { ?>
-                                                    <a href="<?= base_url('desa/buatakunpenduduk/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
+                                                    <span class="btn btn-sm btn-danger">Akun Belum Bibuat</span>
+                                                    <!-- <a href="<?= base_url('desa/buatakunpenduduk/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
                                                         <i class="fa fa-address-card"></i>
                                                         Generate Akun
-                                                    </a>
+                                                    </a> -->
                                             <?php
                                                 } ?>
                                         </td>
                                         <td>
                                             <!-- <a href="#"><i class="fa fa-info btn btn-info"></i></a> -->
-                                            <a href="<?= base_url('desa/detail_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-info btn btn-info"></i></a>
-                                            &nbsp;<!-- <hr> -->
-                                            <a href="<?= base_url('desa/edit_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-edit btn btn-primary"></i></a>
-                                            &nbsp;<!-- <hr> -->
-                                            <a href="<?= base_url('desa/hapus_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-trash btn btn-danger"></i></a>
+                                            <a href="<?= base_url('rw/detail_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-info btn btn-info"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>
