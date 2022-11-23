@@ -14,7 +14,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
                                         <?php  foreach ($tb_penduduk as $tpen) { ?>
-                                        <form action="<?= base_url('desa/prosesubahpenduduk')?>" method="post">
+                                        <form action="<?= base_url('Desa/prosesubahpenduduk')?>" method="post">
                                             <!-- ID Penduduk -->
                                             <input type="hidden" class="form-control" value="<?= $tpen->id_penduduk ?>"name="id_penduduk" hidden required autofocus maxlength="20" />
                                             <!-- No KK dan Nama Lengkap -->
@@ -313,7 +313,7 @@
                                             <!-- Button -->
                                             <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                 <div class="modal-area-button">
-                                                    <a class="Danger danger-color" href="<?= base_url('desa/datapenduduk')?>">Kembali</a>
+                                                    <a class="Danger danger-color" href="<?= base_url('Desa/datapenduduk')?>">Kembali</a>
                                                     <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                 </div>
                                             </div>

@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <form action="<?= base_url('admin/prosestambahdatadesa')?>" method="POST">
+                                        <form action="<?= base_url('Admin/prosestambahdatadesa')?>" method="POST">
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -88,7 +88,7 @@
 
                                                 <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                     <div class="modal-area-button">
-                                                        <a class="Danger danger-color" href="<?= base_url('admin/datadesa')?>">Kembali</a>
+                                                        <a class="Danger danger-color" href="<?= base_url('Admin/datadesa')?>">Kembali</a>
                                                         <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                     </div>
                                                 </div>

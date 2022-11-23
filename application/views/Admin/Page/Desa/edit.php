@@ -15,7 +15,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
                                         <?php  foreach ($tb_desa as $td) { ?>
-                                            <form action="<?= base_url('admin/prosesubahdatadesa')?>" method="POST">
+                                            <form action="<?= base_url('Admin/prosesubahdatadesa')?>" method="POST">
                                                 <input type="hidden" class="form-control" value="<?= $td->id_desa ?>" name="id_desa" hidden/>
                                                 <div class="form-group-inner">
                                                     <div class="row">

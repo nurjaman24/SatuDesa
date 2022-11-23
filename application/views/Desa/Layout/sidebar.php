@@ -19,55 +19,45 @@
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li>
-                            <a title="Beranda" href="<?= base_url('desa/beranda')?>" aria-expanded="false">
+                            <a title="Beranda" href="<?= base_url('Desa/beranda')?>" aria-expanded="false">
                                 <span class="educate-icon educate-home icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Beranda</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Rukun Warga" href="<?= base_url('desa/datarukunwarga')?>" aria-expanded="false">
+                            <a title="Rukun Warga" href="<?= base_url('Desa/datarukunwarga')?>" aria-expanded="false">
                                 <span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Rukun Warga (RW)</span>
                             </a>
-                        </li>
-                        <!-- <li>
-                            <a class="has-arrow"  href="#" aria-expanded="false">
-                                <span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> 
-                                <span class="mini-click-non">Penduduk</span>
-                            </a>
-                            <ul class="submenu-angle collapse" aria-expanded="false">
-                                <li><a title="Tambah Penduduk" href="<?= base_url('desa/tambahdatapenduduk')?>"><span class="mini-sub-pro">Tambah Penduduk</span></a></li>
-                                <li><a title="Data Penduduk" href="<?= base_url('desa/datapenduduk')?>"><span class="mini-sub-pro">Data Penduduk</span></a></li>
-                            </ul>
-                        </li> -->
+                        </li>                       
                         <li>
-                            <a title="Landing Page" href="<?= base_url('desa/datapenduduk')?>"aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('Desa/datapenduduk')?>"aria-expanded="false">
                                 <span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Data Penduduk</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('desa/jenisdokumen')?>"aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('Desa/jenisdokumen')?>"aria-expanded="false">
                                 <span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Jenis Dokumen</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('desa/pengajuan')?>" aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('Desa/pengajuan')?>" aria-expanded="false">
                                 <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">pengajuan</span>
                             </a>
                         </li>
                         <li>
                             <!-- <a title="Landing Page" href="#" aria-expanded="false"> -->
-                            <a title="Landing Page" href="<?= base_url('desa/arsipdokumen')?>" aria-expanded="false">
+                            <a title="Landing Page" href="<?= base_url('Desa/arsipdokumen')?>" aria-expanded="false">
                                 <span class="educate-icon educate-department icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Arsip Dokumen</span>
                             </a>
                         </li>
                     
                         <li>
-                            <a title="Keluar Sesi" href="<?= base_url('Loginv2/logout')?>" aria-expanded="false" class="alert alert-danger">
+                            <a title="Keluar Sesi" href="<?= base_url('Login/logout')?>" aria-expanded="false" class="alert alert-danger">
                                 <span class="educate-icon educate-pages icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Keluar</span>
                             </a>

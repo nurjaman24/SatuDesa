@@ -38,7 +38,7 @@
                                     <!-- Body Modal Untuk Formulir Dokumen-->
                                     <div class="modal-body">
                                         <!-- FORMULIR DOKUMEN -->
-                                        <form action="<?= base_url('desa/buatdokumen')?>" method="post">   
+                                        <form action="<?= base_url('Desa/buatdokumen')?>" method="post">   
                                             <!-- Pilih Tabel Penyimpanan -->
                                                 <div>
                                                     <!-- Tambahkan Script Untuk Memilih Tabel Penyimpanan Data -->
@@ -124,7 +124,7 @@
                     $btncolor = "danger";
                 } ?>
             <!-- Tombol Untuk Mengupdate Status Pengajuan -->
-                <a class="Primary mg-b-10" href="<?= base_url("desa/dokumenselesai/".$tpeng->id_pengajuan."/".$tpeng->status_pengajuan."/".$token_surat)?>">
+                <a class="Primary mg-b-10" href="<?= base_url("Desa/dokumenselesai/".$tpeng->id_pengajuan."/".$tpeng->status_pengajuan."/".$token_surat)?>">
                     <i class="btn btn-<?= $btncolor?> fa fa-file" title="Klik untuk membuat dokumen"> <?= $tpeng->status_pengajuan?></i>
                 </a>
                 <br>

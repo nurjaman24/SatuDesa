@@ -13,7 +13,7 @@
                 Buat Catatan 
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('desa/simpancatatan')?>" method="post">
+                    <form action="<?= base_url('Desa/simpancatatan')?>" method="post">
                         <input type="text" name="id_pengajuan" value="<?= $tpeng->id_pengajuan?>" hidden>
                         <textarea name="keterangan" id="keterangan" class="form-control" cols="50" rows="10"><?= $tpeng->keterangan?></textarea>
                         <br>

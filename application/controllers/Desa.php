@@ -6,10 +6,10 @@ class Desa extends CI_Controller {
         parent::__construct();
         // Data login
             if($this->session->userdata('id_akun') == ""){
-                redirect(base_url("Loginv2"));
+                redirect(base_url("Login"));
             }elseif (!empty($this->session->userdata('id_akun'))){
-                if ($this->session->userdata('level') != "desa") {
-                    redirect(base_url("Loginv2"));
+                if ($this->session->userdata('level') != "Desa") {
+                    redirect(base_url("Login"));
                 }
             }
         $this->load->view('Desa/Layout/head');
@@ -47,7 +47,7 @@ class Desa extends CI_Controller {
                             'nip_nik' => $nip_nik
                         );
                         $this->M_App->simpan_data('tb_rukun_warga', $data);
-                        redirect('desa/datarukunwarga/');
+                        redirect('Desa/datarukunwarga/');
                     }
                 // Generate Akun Rukun Warga (Done)
                     public function buatakunrw($id_relasi, $user, $pass, $level){
@@ -60,7 +60,7 @@ class Desa extends CI_Controller {
                             'level' => $level,
                         );
                         $this->M_App->simpan_data('tb_akun', $data);
-                        redirect('desa/datarukunwarga/');
+                        redirect('Desa/datarukunwarga/');
                     }
         // READ (DONE)
             public function datarukunwarga(){
@@ -98,7 +98,7 @@ class Desa extends CI_Controller {
                     );
                     $where = array('id_rukun_warga' => $id_rukun_warga);
                     $this->M_App->proses_update($where, $data, 'tb_rukun_warga');
-                    redirect('desa/datarukunwarga');
+                    redirect('Desa/datarukunwarga');
                 }
         // DELETE
             // Hapus Data Rukun Warga & Akun Rukun Warga (DONE)
@@ -111,7 +111,7 @@ class Desa extends CI_Controller {
                         'level' => 'rw',
                     );
                     $this->M_App->hapus_data('tb_akun', $whereakun);
-                    redirect('desa/datarukunwarga/');
+                    redirect('Desa/datarukunwarga/');
                 }
             // Hapus Data Akun Rukun Warga (DONE)
                 function hapusakunrw($id_relasi,$level){
@@ -120,7 +120,7 @@ class Desa extends CI_Controller {
                         'level' => $level,
                     );
                     $this->M_App->hapus_data('tb_akun', $whereakun);
-                    redirect('desa/datarukunwarga/');
+                    redirect('Desa/datarukunwarga/');
                 }
     // END RUKUN WARGA
 
@@ -192,7 +192,7 @@ class Desa extends CI_Controller {
                             'no_handphone_aktif' => $no_handphone_aktif,
                         );
                         $this->M_App->simpan_data('tb_penduduk', $data);
-                        redirect('desa/datapenduduk/');
+                        redirect('Desa/datapenduduk/');
                     }
                 // Generate Akun Penduduk (Done)
                     // Akun Penduduk (Done)
@@ -206,7 +206,7 @@ class Desa extends CI_Controller {
                                 'level' => $level,
                             );
                             $this->M_App->simpan_data('tb_akun', $data);
-                            redirect('desa/datapenduduk/');
+                            redirect('Desa/datapenduduk/');
                         }
         // READ (DONE)
             // Data Penduduk
@@ -301,7 +301,7 @@ class Desa extends CI_Controller {
                     );
                     $where = array('id_penduduk' => $id_penduduk);
                     $this->M_App->proses_update($where, $data, 'tb_penduduk');
-                    redirect('desa/datapenduduk');    
+                    redirect('Desa/datapenduduk');    
                 }
         // DELETE
             // Hapus Data Penduduk & Akun Penduduk (DONE)
@@ -314,7 +314,7 @@ class Desa extends CI_Controller {
                         'level' => 'penduduk',
                     );
                     $this->M_App->hapus_data('tb_akun', $whereakun);
-                    redirect('desa/datapenduduk/');
+                    redirect('Desa/datapenduduk/');
                 }
             // Hapus Data Akun Penduduk (DONE)
                 function hapusakunpenduduk($id_relasi,$level){
@@ -323,7 +323,7 @@ class Desa extends CI_Controller {
                         'level' => $level,
                     );
                     $this->M_App->hapus_data('tb_akun', $whereakun);
-                    redirect('desa/datapenduduk/');
+                    redirect('Desa/datapenduduk/');
                 }
     // END PENDUDUK
 
@@ -347,7 +347,7 @@ class Desa extends CI_Controller {
                         
                         );
                         $this->M_App->simpan_data('tb_jenis_dokumen', $data);
-                        redirect('desa/jenisdokumen/');
+                        redirect('Desa/jenisdokumen/');
                     }
 
         // READ (DONE)
@@ -375,14 +375,14 @@ class Desa extends CI_Controller {
                     );
                     $where = array('id_jenis' => $id_jenis);
                     $this->M_App->proses_update($where, $data, 'tb_jenis_dokumen');
-                    redirect('desa/jenisdokumen');
+                    redirect('Desa/jenisdokumen');
                 }
         // DELETE
                 // Hapus Data Jenis Dokumen(DONE)
                     function hapus_jenis($id_jenis){
                         $where = array('id_jenis' => $id_jenis);
                         $this->M_App->hapus_data('tb_jenis_dokumen', $where);
-                        redirect('desa/jenisdokumen/');
+                        redirect('Desa/jenisdokumen/');
                     }
     // END JENIS DOKUMEN
 
@@ -576,7 +576,7 @@ class Desa extends CI_Controller {
                         $where = array('id_pengajuan' => $id_pengajuan);
                         $this->M_App->proses_update($where, $update_status_pengajuan, 'tb_pengajuan');
                     // Pindahkan halaman ke data pengajuan
-                        redirect('desa/pengajuan/');
+                        redirect('Desa/pengajuan/');
                 }
                 
                 // function dokumenselesai($id, $status, $token_surat){
@@ -615,7 +615,7 @@ class Desa extends CI_Controller {
                     );
                     $where = array('id_pengajuan' => $id_pengajuan);
                     $this->M_App->proses_update($where, $data, 'tb_pengajuan');
-                    redirect('desa/pengajuan');
+                    redirect('Desa/pengajuan');
                 }
     // END PENGAJUAN
 
@@ -660,7 +660,7 @@ class Desa extends CI_Controller {
                         'file_dokumen' => $berkas,
                     );
                     $this->M_App->simpan_data('tb_arsip', $data);
-                    redirect('desa/arsipdokumen');
+                    redirect('Desa/arsipdokumen');
                 }
         // READ (Done)
             // Data Arsip Dokumen
@@ -692,7 +692,7 @@ class Desa extends CI_Controller {
                         $this->M_App->hapus_file($where, $data, 'tb_arsip');
                         // Hapus Data
                         $this->M_App->hapus_data('tb_arsip', $where);
-                        redirect('desa/arsipdokumen/');
+                        redirect('Desa/arsipdokumen/');
                     }else {
                         echo "Gagal";
                     }

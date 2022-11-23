@@ -8,10 +8,10 @@ class Admin extends CI_Controller {
             $this->session->userdata();
 
             if($this->session->userdata('id_akun') == ""){
-                redirect(base_url("Loginv2"));
+                redirect(base_url("Login"));
             }elseif (!empty($this->session->userdata('id_akun'))){
                 if ($this->session->userdata('level') != "Admin") {
-                    redirect(base_url("Loginv2"));
+                    redirect(base_url("Login"));
                 }
             }
         $this->load->view('Admin/Layout/head');
@@ -140,7 +140,7 @@ class Admin extends CI_Controller {
                     $whereakun = array('id_relasi' => $id_desa,'level' => 'desa');
                     $this->M_App->hapus_data('tb_akun', $whereakun);
                     // Redirect Halaman ke Data Desa
-                    redirect('admin/datadesa/');
+                    redirect('Admin/datadesa/');
                 }
             // Hapus Data Akun Desa
                 function hapusakundesa($id_relasi,$level){
@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
                     $whereakun = array('id_relasi' => $id_relasi,'level' => $level);
                     $this->M_App->hapus_data('tb_akun', $whereakun);
                     // Redirect Halaman ke Data Desa
-                    redirect('admin/datadesa/');
+                    redirect('Admin/datadesa/');
                 }
             // Hapus Logo Desa
                 function hapus_file_logo($id){

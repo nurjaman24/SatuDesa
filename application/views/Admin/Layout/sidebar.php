@@ -20,25 +20,25 @@
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li>
-                            <a title="Data Desa" href="<?= base_url('admin/datadesa')?>" aria-expanded="false">
+                            <a title="Data Desa" href="<?= base_url('Admin/datadesa')?>" aria-expanded="false">
                                 <span class="fa fa-th icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Data Desa</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Data Admin Desa" href="<?= base_url('admin/datarekapitulasi')?>" aria-expanded="false">
+                            <a title="Data Admin Desa" href="<?= base_url('Admin/datarekapitulasi')?>" aria-expanded="false">
                                 <span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Rekapitulasi Transaksi</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Data Admin Desa" href="<?= base_url('admin/laporan')?>" aria-expanded="false">
+                            <a title="Data Admin Desa" href="<?= base_url('Admin/laporan')?>" aria-expanded="false">
                                 <span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Laporan</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Data Admin Desa" href="<?= base_url('Loginv2/logout')?>" aria-expanded="false" class="alert alert-danger">
+                            <a title="Data Admin Desa" href="<?= base_url('Login/logout')?>" aria-expanded="false" class="alert alert-danger">
                                 <span class="educate-icon educate-pages icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Keluar</span>
                             </a>

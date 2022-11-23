@@ -51,7 +51,7 @@ class Login extends CI_Controller {
             header('location:'.base_url().$data->level.'/beranda');
         }else{
             // echo "Tidak Masuk";
-            header('location:'.base_url().'Loginv2');
+            header('location:'.base_url().'Login');
         }
 
     }

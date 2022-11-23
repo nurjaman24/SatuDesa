@@ -19,7 +19,7 @@
                                 </select> -->
                             </div>
                             <div class="">
-                                <a href="<?= base_url('admin/tambahdatadesa')?>" class="btn btn-success">Tambah Data</a>
+                                <a href="<?= base_url('Admin/tambahdatadesa')?>" class="btn btn-success">Tambah Data</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
@@ -93,7 +93,7 @@
                                         <td>
                                             <?php
                                                 $id_relasi = $td->id_desa;
-                                                $level = "desa";
+                                                $level = "Desa";
                                                 $user = str_replace(' ', '', $td->nama_desa);
                                                 $pass = "satudesa24";
                                                 $akundesa = $this->db->query("SELECT * FROM `tb_akun` WHERE id_relasi = $id_relasi and level = '$level' ")->result();
@@ -103,14 +103,14 @@
                                                     foreach ($akundesa as $ad) { ?>
                                                         <?= $ad->username;?><br>
                                                         Level : <?= $ad->level;?><br>
-                                                        <a href="<?= base_url('admin/hapusakundesa/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
+                                                        <a href="<?= base_url('Admin/hapusakundesa/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
                                                         <i class="fa fa-trash"></i>
                                                         Hapus Akun
                                                     </a>
                                             <?php
                                                     } 
                                                 } else { ?>
-                                                    <a href="<?= base_url('admin/buatakundesa/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
+                                                    <a href="<?= base_url('Admin/buatakundesa/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
                                                         <i class="fa fa-address-card"></i>
                                                         Generate Akun
                                                     </a>
@@ -118,9 +118,9 @@
                                                 } ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('admin/edit_desa/'.$td->id_desa)?>"><i class="fa fa-edit btn btn-warning"></i></a>
+                                            <a href="<?= base_url('Admin/edit_desa/'.$td->id_desa)?>"><i class="fa fa-edit btn btn-warning"></i></a>
                                             <hr>
-                                            <a href="<?= base_url('admin/hapus_desa/'.$td->id_desa)?>"><i class="fa fa-trash btn btn-danger"></i></a>
+                                            <a href="<?= base_url('Admin/hapus_desa/'.$td->id_desa)?>"><i class="fa fa-trash btn btn-danger"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>

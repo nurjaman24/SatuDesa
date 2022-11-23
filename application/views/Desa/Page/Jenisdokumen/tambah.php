@@ -14,7 +14,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="all-form-element-inner">
 
-                                                <form action="<?= base_url('desa/prosestambahjenisdokumen')?>" method="post">
+                                                <form action="<?= base_url('Desa/prosestambahjenisdokumen')?>" method="post">
                                                     <div class="form-group-inner">
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -32,15 +32,15 @@
                                                                     'SURAT KETERANGAN TIDAK MAMPU',
                                                                     'SURAT KETERANGAN USAHA',
                                                                     // Belum ada Template
-                                                                    'SURAT UPCPK',
-                                                                    'SURAT KETERANGAN KEPEMILIKAN TANAH',
-                                                                    'SURAT KETERANGAN KEHILANGAN',
-                                                                    'SURAT KETERANGAN MATI SUAMI/ISTRI',
-                                                                    'SURAT KETERANGAN BEDA IDENTITAS',
-                                                                    'SURAT SKCK',
-                                                                    'SURAT KETERANGAN KERAMAIAN',
-                                                                    'SURAT PINDAH',
-                                                                    'SURAT KETERANGAN LAINNYA',                                        
+                                                                    // 'SURAT UPCPK',
+                                                                    // 'SURAT KETERANGAN KEPEMILIKAN TANAH',
+                                                                    // 'SURAT KETERANGAN KEHILANGAN',
+                                                                    // 'SURAT KETERANGAN MATI SUAMI/ISTRI',
+                                                                    // 'SURAT KETERANGAN BEDA IDENTITAS',
+                                                                    // 'SURAT SKCK',
+                                                                    // 'SURAT KETERANGAN KERAMAIAN',
+                                                                    // 'SURAT PINDAH',
+                                                                    // 'SURAT KETERANGAN LAINNYA',                                        
                                                                     // 'SURAT KETERANGAN PENGANTAR BARANG',
                                                                     // 'SURAT KETERANGAN PENGANTAR TERNAK',
                                                                     // 'SURAT KETERANGAN RUMAH TANGGAN MISKIN SEKALI',
@@ -78,7 +78,7 @@
                                                     </div>
                                                     <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                         <div class="modal-area-button">
-                                                            <a class="Danger danger-color" href="<?= base_url('desa/Jenisdokumen')?>">Kembali</a>
+                                                            <a class="Danger danger-color" href="<?= base_url('Desa/Jenisdokumen')?>">Kembali</a>
                                                             <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                         </div>
                                                     </div>

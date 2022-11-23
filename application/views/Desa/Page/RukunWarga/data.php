@@ -23,7 +23,7 @@
                                             <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="<?= base_url('desa/prosestambahrw')?>" method="POST">
+                                            <form action="<?= base_url('Desa/prosestambahrw')?>" method="POST">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12">
                                                         <select name="id_desa" id="id_desa" class="form-control" required>
@@ -93,7 +93,7 @@
                                         <td>
                                             <?php
                                                 $id_relasi = $trw->id_rukun_warga;
-                                                $level = "rw";
+                                                $level = "Rw";
                                                 $user = str_replace(' ', '', $trw->identitas);
                                                 $pass = "satudesa24";
                                                 $akunrw = $this->db->query("SELECT * FROM `tb_akun` WHERE id_relasi = $id_relasi and level = '$level' ")->result();
@@ -103,14 +103,14 @@
                                                     foreach ($akunrw as $arw) { ?>
                                                         <?= $arw->username;?><br>
                                                         Level : <?= $arw->level;?><br>
-                                                        <a href="<?= base_url('desa/hapusakunrw/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
+                                                        <a href="<?= base_url('Desa/hapusakunrw/'.$id_relasi."/".$level)?>" class="btn btn-xs btn-danger" style="color:white;" >
                                                         <i class="fa fa-trash"></i>
                                                         Hapus Akun
                                                     </a>
                                             <?php
                                                     } 
                                                 } else { ?>
-                                                    <a href="<?= base_url('desa/buatakunrw/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
+                                                    <a href="<?= base_url('Desa/buatakunrw/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
                                                         <i class="fa fa-address-card"></i>
                                                         Generate Akun
                                                     </a>
@@ -118,8 +118,8 @@
                                                 } ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('desa/edit_rw/'.$trw->id_rukun_warga)?>"><i class="fa fa-edit btn btn-sm btn-primary"> Ubah</i></a> 
-                                            <a href="<?= base_url('desa/hapus_rw/'.$trw->id_rukun_warga)?>"><i class="fa fa-trash btn btn-sm btn-danger"> Hapus</i></a>
+                                            <a href="<?= base_url('Desa/edit_rw/'.$trw->id_rukun_warga)?>"><i class="fa fa-edit btn btn-sm btn-primary"> Ubah</i></a> 
+                                            <a href="<?= base_url('Desa/hapus_rw/'.$trw->id_rukun_warga)?>"><i class="fa fa-trash btn btn-sm btn-danger"> Hapus</i></a>
                                         </td>
                                     </tr>
                                     <?php }?>
