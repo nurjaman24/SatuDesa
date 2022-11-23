@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class admin extends CI_Controller {
+// Nama Class Harus Kapital
+class Admin extends CI_Controller {
     function __construct(){
         parent::__construct();
         // Data login
@@ -21,7 +21,7 @@ class admin extends CI_Controller {
     // Beranda
     public function beranda()
 	{
-        redirect('/admin/datadesa');
+        redirect('/Admin/datadesa');
     }
 
 // =======================================================================================================================
