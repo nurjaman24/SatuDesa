@@ -63,7 +63,7 @@
                 <div class="content-error">
                     <div class="hpanel">
                         <div class="panel-body">
-                            <form method="post" action="<?= base_url('Loginv2/auth'); ?>">
+                            <form method="post" action="<?= base_url('Login/auth'); ?>">
                                 <div class="form-group">
                                     <label class="control-label" for="username">Nama Pengguna <code>*</code></label>
                                     <input type="text" placeholder="Contoh : adminsadesa" title="Masukan Nama Pengguna" 
@@ -82,7 +82,7 @@
                         </div>
                         <div class="panel-footer">
                             Belum Punya Akun ?
-                            <a class="" href="<?= base_url("Loginv2/registrasi")?>">Klik Disini</a>
+                            <a class="" href="<?= base_url("Login/registrasi")?>">Klik Disini</a>
                             <!-- <a class="" href="https://api.whatsapp.com/send?phone=<?= $telepon?>&text=<?= $pesan?>">Klik Disini</a> -->
                             <!--<a class="badge badge-primary btn btn-sm" href="<?= base_url('Login/register')?>">Daftar Disini</a>-->
                         </div>

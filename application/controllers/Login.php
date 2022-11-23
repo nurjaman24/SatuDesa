@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Loginv2 extends CI_Controller {
+class Login extends CI_Controller {
     // Halaman Login
 	function index(){
         // Membuat Array Data Desa
         $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
         
         // Menampilkan View Halaman Login
-        $this->load->view('login/index',$data);
+        $this->load->view('Login/index',$data);
     }
 
     function registrasi(){
@@ -16,12 +16,12 @@ class Loginv2 extends CI_Controller {
         // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
         
         // Menampilkan View Halaman Login
-        $this->load->view('login/registrasi');
+        $this->load->view('Login/registrasi');
     }
 
 	// Pengecekan login
 	function auth(){
-        $relasi = 'admin';
+        // $relasi = 'Admin';
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $sandi_md5 = md5($password); // konversi ke encrypt => Md5
@@ -47,6 +47,7 @@ class Loginv2 extends CI_Controller {
             );
             // var_dump($datalogin);
             $this->session->set_userdata($datalogin);
+            // echo "Masuk";
             header('location:'.base_url().$data->level.'/beranda');
         }else{
             // echo "Tidak Masuk";
@@ -57,6 +58,6 @@ class Loginv2 extends CI_Controller {
     
     function logout(){
         $this->session->sess_destroy(); // Destroy data login sebelumnya
-        header('location:'.base_url().'Loginv2');
+        header('location:'.base_url().'Login');
     }
 }

@@ -10,7 +10,7 @@ class Admin extends CI_Controller {
             if($this->session->userdata('id_akun') == ""){
                 redirect(base_url("Loginv2"));
             }elseif (!empty($this->session->userdata('id_akun'))){
-                if ($this->session->userdata('level') != "admin") {
+                if ($this->session->userdata('level') != "Admin") {
                     redirect(base_url("Loginv2"));
                 }
             }
