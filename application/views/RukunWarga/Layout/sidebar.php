@@ -26,24 +26,28 @@
                         </li>
                         <li>
                             <a title="Landing Page" href="<?= base_url('rw/penduduk')?>"aria-expanded="false">
+                            <!-- <a title="Landing Page" href="#"aria-expanded="false"> -->
                                 <span class="fa fa-users icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Penduduk</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('rw/tambahpersyaratan')?>"aria-expanded="false">
+                            <!-- <a title="Landing Page" href="<?= base_url('rw/tambahpersyaratan')?>"aria-expanded="false"> -->
+                            <a title="Landing Page" href="#"aria-expanded="false">
                                 <span class="educate-icon educate-library icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Persyaratan</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('rw/pengajuan')?>"aria-expanded="false">
+                            <!-- <a title="Landing Page" href="<?= base_url('rw/pengajuan')?>"aria-expanded="false"> -->
+                            <a title="Landing Page" href="#"aria-expanded="false">
                                 <span class="educate-icon educate-apps icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Buat Pengajuan</span>
                             </a>
                         </li>
                         <li>
-                            <a title="Landing Page" href="<?= base_url('rw/trackingpengajuan')?>" aria-expanded="false">
+                            <!-- <a title="Landing Page" href="<?= base_url('rw/trackingpengajuan')?>" aria-expanded="false"> -->
+                            <a title="Landing Page" href="#"aria-expanded="false">
                                 <span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> 
                                 <span class="mini-click-non">Tracking Pengajuan</span>
                             </a>

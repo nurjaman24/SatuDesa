@@ -15,11 +15,11 @@
                                 
                             </div>
                             <div class="">
-                                <a href="<?= base_url('desa/tambahdatapenduduk')?>" class="btn btn-success">
+                                <!-- <a href="<?= base_url('desa/tambahdatapenduduk')?>" class="btn btn-success">
                                     <i class="fa fa-plus"></i> Tambah Data
-                                </a>
+                                </a> -->
                                 <!-- Untuk Fitur Upload Data Penduduk -->
-                                <div class="btn btn-primary"><i class="fa fa-cloud-upload text-md"></i> Import Data</div>
+                                <!-- <div class="btn btn-primary"><i class="fa fa-cloud-upload text-md"></i> Import Data</div> -->
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">

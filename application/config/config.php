@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/SatuDesa';
+// $config['base_url'] = 'http://10.146.119.178/SatuDesa';
 // $config['base_url'] = 'https://meniti.id/sadesa/';
 
 

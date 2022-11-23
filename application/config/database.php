@@ -76,15 +76,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	// Hosting Meniti
-	// 'hostname' => 'meniti.id',
-	// 'username' => 'u7753801_nurjaman',
-	// 'password' => 'Nurjaman24',
-	// 'database' => 'u7753801_sadesa',
+	'hostname' => 'meniti.id',
+	'username' => 'u7753801_nurjaman',
+	'password' => 'Nurjaman24',
+	'database' => 'u7753801_db_satudesa',
 	// Localhost
-	'hostname' => 'localhost',
-	'username' => 'SatuDesa',
-	'password' => 'IntegrasiDesa24',
-	'database' => 'db_satudesa',
+	// 'hostname' => 'localhost',
+	// 'username' => 'SatuDesa',
+	// 'password' => 'IntegrasiDesa24',
+	// 'database' => 'db_satudesa',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -97,6 +97,7 @@ $db['default'] = array(
 	'encrypt' => FALSE,
 	'compress' => FALSE,
 	'stricton' => FALSE,
+	// 'stricton' => TRUE,
 	'failover' => array(),
 	'save_queries' => TRUE
 );
