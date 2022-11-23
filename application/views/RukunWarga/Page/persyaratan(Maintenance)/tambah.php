@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <?= form_open_multipart('penduduk/prosestambahpersyaratan'); ?>
+                                        <?= form_open_multipart('Rw/prosestambahpersyaratan'); ?>
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -24,7 +24,7 @@
                                                             <?php
                                                                 foreach($tb_penduduk as $tp){
                                                             ?>
-                                                                <option value="<?= $tp->id_penduduk?>">NIK : <?= $tp->nik?> | <?= $tp->nama?></option>
+                                                                <option value="<?= $tp->id_penduduk?>">NIK : <?= $tp->id_penduduk?> | <?= $tp->nama?></option>
                                                             <?php }?>
                                                         </select>
                                                     </div>

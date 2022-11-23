@@ -12,7 +12,7 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div class="">
-                                <a href="<?= base_url('desa/tambahdataarsip')?>" class="btn btn-success">
+                                <a href="<?= base_url('Desa/tambahdataarsip')?>" class="btn btn-success">
                                 <i class="fa fa-upload"></i> Upload Arsip Dokumen Baru
                                 </a>
                             </div>
@@ -51,8 +51,8 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <!-- <a href="<?= base_url('desa/detail_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-edit btn btn-primary"></i></a>  -->
-                                            <a href="<?= base_url('desa/hapus_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-trash btn btn-danger"></i></a>
+                                            <!-- <a href="<?= base_url('Desa/detail_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-edit btn btn-primary"></i></a>  -->
+                                            <a href="<?= base_url('Desa/hapus_arsip/'.$tar->id_arsip_dokumen)?>"><i class="fa fa-trash btn btn-danger"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>

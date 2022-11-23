@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class penduduk extends CI_Controller {
+class Penduduk extends CI_Controller {
     function __construct(){
         parent::__construct();
         // Data login
         if($this->session->userdata('id_akun') == ""){
-            redirect(base_url("Loginv2"));
+            redirect(base_url("Login"));
         }elseif (!empty($this->session->userdata('id_akun'))){
-            if ($this->session->userdata('level') != "penduduk") {
-                redirect(base_url("Loginv2"));
+            if ($this->session->userdata('level') != "Penduduk") {
+                redirect(base_url("Login"));
             }
         }
         $this->load->view('Penduduk/Layout/head');
@@ -73,7 +73,7 @@ class penduduk extends CI_Controller {
                     );
                     $this->M_App->simpan_data('tb_pengajuan', $data);
                     // var_dump($data);
-                    redirect('penduduk/trackingpengajuan/');
+                    redirect('Penduduk/trackingpengajuan/');
                 }
             // END Buat Pengajuan
             // Upload Persyaratan (DONE)
@@ -109,7 +109,7 @@ class penduduk extends CI_Controller {
                             'file_persyaratan' => $berkas
                         );
                         $this->M_App->simpan_data('tb_persyaratan', $data);
-                        redirect('penduduk/pengajuan/');
+                        redirect('Penduduk/pengajuan/');
                     }
             // END Upload Persyaratan
         // READ
@@ -148,7 +148,7 @@ class penduduk extends CI_Controller {
                         $this->M_App->hapus_file($where, $data, 'tb_persyaratan');
                         // Hapus Data
                         $this->M_App->hapus_data('tb_persyaratan', $where);
-                        redirect('penduduk/pengajuan/');
+                        redirect('Penduduk/pengajuan/');
                     }else {
                         echo "Gagal";
                     }
@@ -167,7 +167,7 @@ class penduduk extends CI_Controller {
                     );
                     $where = array('id_pengajuan' => $id_pengajuan);
                     $this->M_App->proses_update($where, $data, 'tb_pengajuan');
-                    redirect('penduduk/trackingpengajuan');
+                    redirect('Penduduk/trackingpengajuan');
                 }
             // END Buat Catatan
         // READ

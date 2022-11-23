@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class rw extends CI_Controller {
+class Rw extends CI_Controller {
     function __construct(){
         parent::__construct();
         // Data login
         if($this->session->userdata('id_akun') == ""){
-            redirect(base_url("Loginv2"));
+            redirect(base_url("Login"));
         }elseif (!empty($this->session->userdata('id_akun'))){
-            if ($this->session->userdata('level') != "rw") {
-                redirect(base_url("Loginv2"));
+            if ($this->session->userdata('level') != "Rw") {
+                redirect(base_url("Login"));
             }
         }
         $this->load->view('RukunWarga/Layout/head');
@@ -85,7 +85,7 @@ class rw extends CI_Controller {
                     );
                     $this->M_App->simpan_data('tb_pengajuan', $data);
                     // var_dump($data);
-                    redirect('penduduk/trackingpengajuan/');
+                    redirect('Rw/trackingpengajuan/');
                 }
             // END Buat Pengajuan
             // Upload Persyaratan (DONE)
@@ -125,25 +125,26 @@ class rw extends CI_Controller {
                             'file_persyaratan' => $berkas
                         );
                         $this->M_App->simpan_data('tb_persyaratan', $data);
-                        redirect('penduduk/pengajuan/');
+                        redirect('Rw/pengajuan/');
                     }
             // END Upload Persyaratan
         // READ
             // Pengajuan
                 public function pengajuan(){
                     // Menampilkan Persyaratan
-                    $id_penduduk = $this->session->userdata('id_relasi');
-                    $kondisi = array('tb_persyaratan.id_penduduk' => $id_penduduk);
+                    $id_rukun_warga = $this->session->userdata('id_relasi');
+                    $kondisi = array('tb_penduduk.rukun_warga' => $id_rukun_warga);
                     $data['tb_persyaratan'] = $this->M_App->edit_data_join('tb_persyaratan', 'tb_penduduk', 'tb_penduduk.id_penduduk = tb_persyaratan.id_penduduk', $kondisi)->result();
                     
                     // Menampilkan  Data Penduduk 
-                    $where = array('id_penduduk' => $id_penduduk);
+                    $where = array('rukun_warga' => $id_rukun_warga);
                     $data['tb_profile'] = $this->M_App->edit_data_join('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', $where)->result();
+
                     $data['tb_jenis_dokumen'] = $this->M_App->tampil_data('tb_jenis_dokumen','id_jenis','ASC')->result();
                     
                     // Mengload View Pengajuan
-                    $this->load->view('Penduduk/Page/pengajuan/index', $data);
-                    $this->load->view('Penduduk/Layout/footer');
+                    $this->load->view('RukunWarga/Page/pengajuan/index', $data);
+                    $this->load->view('RukunWarga/Layout/footer');
                 }
             // END Pengajuan
         // DELETE
@@ -164,7 +165,7 @@ class rw extends CI_Controller {
                         $this->M_App->hapus_file($where, $data, 'tb_persyaratan');
                         // Hapus Data
                         $this->M_App->hapus_data('tb_persyaratan', $where);
-                        redirect('penduduk/pengajuan/');
+                        redirect('Rw/pengajuan/');
                     }else {
                         echo "Gagal";
                     }
@@ -183,21 +184,22 @@ class rw extends CI_Controller {
                     );
                     $where = array('id_pengajuan' => $id_pengajuan);
                     $this->M_App->proses_update($where, $data, 'tb_pengajuan');
-                    redirect('penduduk/trackingpengajuan');
+                    redirect('Rw/trackingpengajuan');
                 }
             // END Buat Catatan
         // READ
             // Tracking Pengajuan
                 public function trackingpengajuan(){
-                    $id_penduduk = $this->session->userdata('id_relasi');
-                    $where = array('tb_pengajuan.id_penduduk' => $id_penduduk);
+                    $id_rukun_warga = $this->session->userdata('id_relasi');
+                    $where = array('tb_penduduk.rukun_warga' => $id_rukun_warga);
+
                     $data['tb_pengajuan'] = $this->M_App->edit_data_join3('tb_pengajuan', 
                     'tb_penduduk', 'tb_penduduk.id_penduduk = tb_pengajuan.id_penduduk',
                     'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa',
                     'tb_jenis_dokumen', 'tb_jenis_dokumen.id_jenis = tb_pengajuan.id_jenis',
                     $where)->result();
-                    $this->load->view('Penduduk/Page/pengajuan/data', $data);
-                    $this->load->view('Penduduk/Layout/footer');
+                    $this->load->view('RukunWarga/Page/pengajuan/data', $data);
+                    $this->load->view('RukunWarga/Layout/footer');
                 }
             // END Tracking Pengajuan
     // END TRACKING PENGAJUAN

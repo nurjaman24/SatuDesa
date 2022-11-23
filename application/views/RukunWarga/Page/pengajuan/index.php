@@ -55,7 +55,7 @@
                                                 $datetime = date('d-m-Y H:i:s');
                                                 $date = date('d-m-Y')
                                             ?>
-                                            <form action="<?= base_url('penduduk/prosespengajuandokumen')?>" method="post">
+                                            <form action="<?= base_url('Rw/prosespengajuandokumen')?>" method="post">
                                                 <!-- Tanggal Pengajuan -->
                                                     <div class="form-group-inner">
                                                         <div class="row">
@@ -69,8 +69,15 @@
                                                                 <label class="login2 pull-right pull-right-pro">Nama Lengkap<code>*</code></label>
                                                             </div>
                                                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                                <label class="login2"><?= $tpro->nama?></label>
-                                                                <input type="hidden" class="form-control" name="id_penduduk"   id="id_penduduk" value="<?= $tpro->id_penduduk?>" readonly/>
+                                                                <!-- <label class="login2"><?= $tpro->nama?></label> -->
+                                                                <!-- <input type="hidden" class="form-control" name="id_penduduk"   id="id_penduduk" value="<?= $tpro->id_penduduk?>" readonly/> -->
+                                                                <select name="id_penduduk" id="id_penduduk" class="form-control">
+                                                                    <?php foreach ($tb_profile as $tpen) { ?>
+                                                                        <option value="<?= $tpen->id_penduduk?>">
+                                                                            <?= 'PDK'.$tpen->id_penduduk." - ".$tpen->nama?>
+                                                                        </option>
+                                                                    <?php }?>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -82,7 +89,7 @@
                                                             </div>
                                                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                                 <label class="login2"><?= $tpro->nama_desa?></label>
-                                                                <input type="hidden" class="form-control" name="id_desa"   id="id_penduduk" value="<?= $tpro->id_desa?>" readonly/>
+                                                                <input type="hidden" class="form-control" name="id_desa"   id="id_desa" value="<?= $tpro->id_desa?>" readonly/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -190,7 +197,7 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div class="">
-                                <a href="<?= base_url('penduduk/tambahpersyaratan')?>" class="btn btn-success">
+                                <a href="<?= base_url('Rw/tambahpersyaratan')?>" class="btn btn-success">
                                     <i class="fa fa-upload"></i>
                                     Upload Persyaratan
                                 </a>
@@ -234,7 +241,7 @@
                                                             <code>Data akan dihapus secara permanent</code>
                                                         </div>
                                                         <div class="modal-footer danger-md text-white">
-                                                            <a href="<?= base_url('penduduk/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
+                                                            <a href="<?= base_url('Rw/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
                                                                 <i class="fa fa-trash">
                                                                     Tetap Hapus
                                                                 </i>    

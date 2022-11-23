@@ -54,7 +54,7 @@
                                         <hr>
                                         <div class="modal-bootstrap shadow-inner responsive-mg-b-0">
                                             <div class="modal-area-button">
-                                                <a class="Danger danger-color" href="<?= base_url('rw/penduduk')?>">Kembali</a>
+                                                <a class="Danger danger-color" href="<?= base_url('Rw/penduduk')?>">Kembali</a>
                                             </div>
                                         </div>
                                     </div>

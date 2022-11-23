@@ -55,7 +55,7 @@
                                                 $datetime = date('d-m-Y H:i:s');
                                                 $date = date('d-m-Y')
                                             ?>
-                                            <form action="<?= base_url('penduduk/prosespengajuandokumen')?>" method="post">
+                                            <form action="<?= base_url('Penduduk/prosespengajuandokumen')?>" method="post">
                                                 <!-- Tanggal Pengajuan -->
                                                     <div class="form-group-inner">
                                                         <div class="row">
@@ -190,7 +190,7 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div class="">
-                                <a href="<?= base_url('penduduk/tambahpersyaratan')?>" class="btn btn-success">
+                                <a href="<?= base_url('Penduduk/tambahpersyaratan')?>" class="btn btn-success">
                                     <i class="fa fa-upload"></i>
                                     Upload Persyaratan
                                 </a>
@@ -234,7 +234,7 @@
                                                             <code>Data akan dihapus secara permanent</code>
                                                         </div>
                                                         <div class="modal-footer danger-md text-white">
-                                                            <a href="<?= base_url('penduduk/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
+                                                            <a href="<?= base_url('Penduduk/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
                                                                 <i class="fa fa-trash">
                                                                     Tetap Hapus
                                                                 </i>    

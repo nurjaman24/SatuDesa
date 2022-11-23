@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <?= form_open_multipart('penduduk/prosestambahpersyaratan'); ?>
+                                        <?= form_open_multipart('Penduduk/prosestambahpersyaratan'); ?>
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -39,7 +39,7 @@
 
                                             <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                 <div class="modal-area-button">
-                                                    <a class="Danger danger-color" href="<?= base_url('penduduk/tambahpengajuan')?>">Kembali</a>
+                                                    <a class="Danger danger-color" href="<?= base_url('Penduduk/tambahpengajuan')?>">Kembali</a>
                                                     <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                 </div>
                                             </div>

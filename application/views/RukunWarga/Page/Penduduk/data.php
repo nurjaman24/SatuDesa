@@ -75,7 +75,7 @@
                                         </td>
                                         <td>
                                             <!-- <a href="#"><i class="fa fa-info btn btn-info"></i></a> -->
-                                            <a href="<?= base_url('rw/detail_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-info btn btn-info"></i></a>
+                                            <a href="<?= base_url('Rw/detail_penduduk/'.$tpen->id_penduduk)?>"><i class="fa fa-info btn btn-info"></i></a>
                                         </td>
                                     </tr>
                                     <?php }?>
