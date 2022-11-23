@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Desa_CI extends CI_Controller {
+class Desa extends CI_Controller {
     function __construct(){
         parent::__construct();
         // Data login
