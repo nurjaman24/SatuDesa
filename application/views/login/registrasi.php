@@ -64,7 +64,7 @@
                     <div class="hpanel">
                         <div class="panel-body">
                             <h4>Pendaftaran Akun Belum Tersedia</h4>
-                            <!-- <form method="post" action="<?= base_url('Loginv2/auth'); ?>">
+                            <!-- <form method="post" action="<?= base_url('Login/auth'); ?>">
                                 <div class="form-group">
                                     <label class="control-label" for="username">Nama Pengguna <code>*</code></label>
                                     <input type="text" placeholder="Contoh : adminsadesa" title="Masukan Nama Pengguna" 
@@ -82,7 +82,7 @@
                             </form> -->
                         </div>
                         <div class="panel-footer">
-                            Sudah Punya Akun ? <a class="" href="<?= base_url("Loginv2")?>">Masuk Akun</a>
+                            Sudah Punya Akun ? <a class="" href="<?= base_url("Login")?>">Masuk Akun</a>
                         </div>
                     </div>
                 </div>
