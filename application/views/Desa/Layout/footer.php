@@ -79,6 +79,7 @@
     <script src="<?= base_url('asset/js/main.js')?>"></script>
     <!-- tawk chat JS ============================================ -->
     <script src="<?= base_url('asset/js/tawk-chat.')?>"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
     function bacagambar(input){
         if (input.files && input.files[0]) {
@@ -93,6 +94,38 @@
     $("#view_gambar").change(function(){
         bacagambar(this);
     });  
+    </script>
+    <script type="text/javascript">
+        // $(document).ready(function(){
+        //     tampil_data_barang();   //pemanggilan fungsi tampil barang.
+            
+        //     $('#mydata').dataTable();
+            
+        //     //fungsi tampil barang
+        //     function tampil_data_barang(){
+        //         $.ajax({
+        //             type  : 'ajax',
+        //             url   : '<?php echo base_url()?>/Desa/datapenduduk_API',
+        //             async : false,
+        //             dataType : 'json',
+        //             success : function(data){
+        //                 var html = '';
+        //                 var i;
+        //                 for(i=0; i<data.length; i++){
+        //                     html += '<tr>'+
+        //                             '<td> 3229384756 </td>'+
+        //                             '<td> Nurjaman </td>'+
+        //                                 // '<td>'+data[i].nik+'</td>'+
+        //                                 // '<td>'+data[i].nama+'</td>'+
+        //                             '</tr>';
+        //                 }
+        //                 $('#Tampilkan_data').html(html);
+        //             }
+    
+        //         });
+        //     }
+    
+        // });
     </script>
 </body>
 

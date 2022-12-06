@@ -479,7 +479,7 @@
             return 'Search';
         },
         formatNoMatches: function () {
-            return 'No matching records found';
+            return '<center>Belum ada data ....</center>';
         },
         formatPaginationSwitch: function () {
             return 'Hide/Show pagination';

@@ -24,7 +24,7 @@
                                                             <?php
                                                                 foreach($tb_penduduk as $tp){
                                                             ?>
-                                                                <option value="<?= $tp->id_penduduk?>">NIK : <?= $tp->id_penduduk?> | <?= $tp->nama?></option>
+                                                                <option value="<?= $tp->id_penduduk?>"><?= $tp->nik?> | <?= $tp->nama?></option>
                                                             <?php }?>
                                                         </select>
                                                     </div>
@@ -36,7 +36,7 @@
                                                         <label class="login2 pull-right pull-right-pro">Nama Persyaratan<code>*</code></label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                        <input type="hidden" class="form-control" name="id_penduduk" required autofocus maxlength="20" value="<?= $this->session->userdata('id_relasi')?>"/>
+                                                        <!-- <input type="hidden" class="form-control" name="id_penduduk" required autofocus maxlength="20" value="<?= $this->session->userdata('id_relasi')?>"/> -->
                                                         <input type="text" class="form-control" name="nama_persyaratan" required autofocus maxlength="20" />
                                                     </div>
                                                 </div>
@@ -55,7 +55,7 @@
 
                                             <div class="modal-bootstrap shadow-inner mg-tb-30 responsive-mg-b-0">
                                                 <div class="modal-area-button">
-                                                    <a class="Danger danger-color" href="<?= base_url('penduduk/tambahpengajuan')?>">Kembali</a>
+                                                    <a class="Danger danger-color" href="<?= base_url('Rw/pengajuan')?>">Kembali</a>
                                                     <a class="Primary mg-b-10" href="#" data-toggle="modal" data-target="#PrimaryModalalert">Simpan</a>
                                                 </div>
                                             </div>

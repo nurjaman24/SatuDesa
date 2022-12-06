@@ -32,7 +32,7 @@ CREATE TABLE `tb_akun` (
   `id_relasi` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `level` enum('admin','desa','rw','penduduk') NOT NULL
+  `level` enum('Admin','Desa','Rw','Penduduk') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -45,7 +45,7 @@
 </head>
     <body>
         <div class="error-pagewrap">
-            <div class="error-page-int">
+            <div class="error-page-int" style="margin-top:-10%;">
                 <hr>
                 <div class="text-center m-b-md custom-login">
                     <div class="row">
@@ -71,7 +71,7 @@
                                     autocomplete="off" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="password">Password <code>*</code></label>
+                                    <label class="control-label" for="password">Kata Sandi<code>*</code></label>
                                     <input type="password" title="Please enter your password" 
                                     placeholder="******" required="" value="" name="password" 
                                     id="showPassword" class="form-control" autocomplete="off"><br>
@@ -80,17 +80,17 @@
                                 <button class="btn btn-success btn-block loginbtn" type="submit">Login</button>
                             </form>
                         </div>
-                        <div class="panel-footer">
-                            Belum Punya Akun ?
+                        <!-- <div class="panel-footer"> -->
+                            <!-- Belum Punya Akun ? -->
                             <!-- <a class="" href="<?= base_url("Login/registrasi")?>">Klik Disini</a> -->
                             <!-- <a class="" href="https://api.whatsapp.com/send?phone=<?= $telepon?>&text=<?= $pesan?>">Klik Disini</a> -->
                             <!--<a class="badge badge-primary btn btn-sm" href="<?= base_url('Login/register')?>">Daftar Disini</a>-->
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>   
-            <div class="text-center login-footer">
-                <p>Copyright © 2022. All rights reserved. Developer By <a href="#" class="text-white"><b>STT YBSI</b></a></p>
+            <div class="login-footer bg bg-primary" style="margin-top:-5%;padding:1% 0% 1% 0%;">
+                <p><i>Copyright © 2022. All rights reserved.</i> Developer By <b>Team Satu Desa</b></p>
             </div>
         </div>
             <!-- jquery ============================================ -->

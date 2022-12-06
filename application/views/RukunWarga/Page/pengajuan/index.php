@@ -1,6 +1,99 @@
 <div class="basic-form-area mg-b-15">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-left:1%;margin-top:3.5%;">
+            <!-- Data Persyaratan -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1>Data Persyaratan</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div class="">
+                                <a href="<?= base_url('Rw/tambahpersyaratan')?>" class="btn btn-success">
+                                    <i class="fa fa-upload"></i>
+                                    Upload Persyaratan
+                                </a>
+                            </div>
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true"
+                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="nama_pen" >Nama Penduduk</th>
+                                        <th data-field="nama_per" >Nama Persyaratan</th>
+                                        <th data-field="file" >File Persyaratan</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($tb_persyaratan as $tak){?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $tak->nama?></td>
+                                        <td><?= $tak->nama_persyaratan?></td>
+                                        <td>
+                                            <a href="<?= base_url('asset/persyaratan/'.$tak->file_persyaratan)?>" target="_blank" rel="noopener noreferrer" >
+                                                <button class="btn btn-primary btn-xs"> 
+                                                    <i class="fa fa-eye"></i>
+                                                    Lihat File
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="" href="#" data-toggle="modal" data-target="#<?= $tak->id_persyaratan?>">
+                                                <i class="btn btn-danger fa fa-trash text-white"></i>
+                                            </a>
+                                            <div id="<?= $tak->id_persyaratan?>" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-close-area modal-close-df">
+                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <span class="educate-icon educate-danger modal-check-pro information-icon-pro"></span>
+                                                            <h1>Yakin ingin menghapus data ini?</h1>
+                                                            <code>Data akan dihapus secara permanent</code>
+                                                        </div>
+                                                        <div class="modal-footer danger-md text-white">
+                                                            <a href="<?= base_url('Rw/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
+                                                                <i class="fa fa-trash">
+                                                                    Tetap Hapus
+                                                                </i>    
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="" class="modal modal-edu-general default-popup-DangerModal fade" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-close-area modal-close-df">
+                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <i class="educate-icon educate-danger modal-check-pro information-icon-pro"></i>
+                                                            
+                                                        </div>
+                                                        <div class="modal-footer text-center">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php }?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:2%;margin-left:1%;">
             <!-- Jenis Pengajuan tersedia -->        
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="admin-pro-accordion-wrap shadow-inner">
@@ -182,99 +275,6 @@
                         </div>
                     </div>
                 </div>
-        </div>
-        <br>
-
-        <div class="row">
-            <!-- Data Persyaratan -->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="sparkline13-list">
-                    <div class="sparkline13-hd">
-                        <div class="main-sparkline13-hd">
-                            <h1>Data Persyaratan</h1>
-                        </div>
-                    </div>
-                    <div class="sparkline13-graph">
-                        <div class="datatable-dashv1-list custom-datatable-overright">
-                            <div class="">
-                                <a href="<?= base_url('Rw/tambahpersyaratan')?>" class="btn btn-success">
-                                    <i class="fa fa-upload"></i>
-                                    Upload Persyaratan
-                                </a>
-                            </div>
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true"
-                                data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
-                                <thead>
-                                    <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
-                                        <th data-field="nama_per" >Nama Persyaratan</th>
-                                        <th data-field="file" >File Persyaratan</th>
-                                        <th data-field="action">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($tb_persyaratan as $tak){?>
-                                    <tr>
-                                        <td></td>
-                                        <td><?= $tak->nama_persyaratan?></td>
-                                        <td>
-                                            <a href="<?= base_url('asset/persyaratan/'.$tak->file_persyaratan)?>" target="_blank" rel="noopener noreferrer" >
-                                                <button class="btn btn-primary btn-xs"> 
-                                                    <i class="fa fa-eye"></i>
-                                                    Lihat File
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a class="" href="#" data-toggle="modal" data-target="#<?= $tak->id_persyaratan?>">
-                                                <i class="btn btn-danger fa fa-trash text-white"></i>
-                                            </a>
-                                            <div id="<?= $tak->id_persyaratan?>" class="modal modal-edu-general FullColor-popup-DangerModal fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-close-area modal-close-df">
-                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <span class="educate-icon educate-danger modal-check-pro information-icon-pro"></span>
-                                                            <h1>Yakin ingin menghapus data ini?</h1>
-                                                            <code>Data akan dihapus secara permanent</code>
-                                                        </div>
-                                                        <div class="modal-footer danger-md text-white">
-                                                            <a href="<?= base_url('Rw/hapus_persyaratan/'.$tak->id_persyaratan)?>" class="">
-                                                                <i class="fa fa-trash">
-                                                                    Tetap Hapus
-                                                                </i>    
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="" class="modal modal-edu-general default-popup-DangerModal fade" role="dialog">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-close-area modal-close-df">
-                                                            <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <i class="educate-icon educate-danger modal-check-pro information-icon-pro"></i>
-                                                            
-                                                        </div>
-                                                        <div class="modal-footer text-center">
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php }?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

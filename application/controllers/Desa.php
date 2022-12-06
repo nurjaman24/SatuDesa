@@ -210,11 +210,18 @@ class Desa extends CI_Controller {
                         }
         // READ (DONE)
             // Data Penduduk
+                // public function datapenduduk_API(){
+                //     $id_desa = $this->session->userdata("id_relasi");
+                //     $where = array('tb_penduduk.id_desa' => $id_desa);
+                //     $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
+                //     echo json_encode($data);
+                // }
             public function datapenduduk(){
                 $id_desa = $this->session->userdata("id_relasi");
                 $where = array('tb_penduduk.id_desa' => $id_desa);
                 $data['tb_penduduk'] = $this->M_App->tampil_data_join2_where('tb_penduduk', 'tb_desa', 'tb_desa.id_desa = tb_penduduk.id_desa', 'tb_rukun_warga', 'tb_rukun_warga.id_rukun_warga = tb_penduduk.rukun_warga', $where, 'id_penduduk','ASC')->result();
                 $this->load->view('Desa/Page/Penduduk/data', $data);
+                // $this->load->view('Desa/Page/Penduduk/data');
                 $this->load->view('Desa/Layout/footer');
             }
             // Detail Data Penduduk
