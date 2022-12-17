@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
         parent::__construct();
         // Data login
             $this->session->userdata();
-
             if($this->session->userdata('id_akun') == ""){
                 redirect(base_url("Login"));
             }elseif (!empty($this->session->userdata('id_akun'))){
