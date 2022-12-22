@@ -31,6 +31,7 @@
                                         <th data-field="alamat_desa" data-editable="false">Alamat Desa</th>
                                         <th data-field="email_desa" data-editable="false">Kontak Desa</th>
                                         <th data-field="telepon_desa" data-editable="false">Akun Desa</th>
+                                        <th data-field="telepon_desa" data-editable="false">Akun Kepala Desa</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -112,8 +113,35 @@
                                                 } else { ?>
                                                     <a href="<?= base_url('Admin/buatakundesa/'.$id_relasi."/".$user."/".$pass."/".$level)?>" class="btn btn-xs btn-success" style="color:white;" >
                                                         <i class="fa fa-address-card"></i>
-                                                        Generate Akun
+                                                        Generate Akun Desa
                                                     </a>
+                                                   
+                                            <?php
+                                                } ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                                $levelkep = "Kepdes";
+												$userkep = str_replace(' ', '', $td->nama_kepala_desa);
+                                                $akunkepdes = $this->db->query("SELECT * FROM `tb_akun` WHERE id_relasi = $id_relasi and level = '$levelkep' ")->result();
+                                                $stat_akunkepdes = $this->db->query("SELECT * FROM `tb_akun` WHERE id_relasi = $id_relasi and level = '$levelkep' ")->num_rows();
+                                                // var_dump($akundesa);
+                                                if ($stat_akunkepdes > 0) {
+                                                    foreach ($akunkepdes as $row) { ?>
+                                                        <?= $row->username;?><br>
+                                                        Level : <?= $row->level;?><br>
+                                                        <a href="<?= base_url('Admin/hapusakunkepdes/'.$id_relasi."/".$levelkep)?>" class="btn btn-xs btn-danger" style="color:white;" >
+                                                        <i class="fa fa-trash"></i>
+                                                        Hapus Akun
+                                                    </a>
+                                            <?php
+                                                    } 
+                                                } else { ?>
+                                                    <a href="<?= base_url('Admin/buatakunkepdes/'.$id_relasi."/".$userkep."/".$pass."/".$levelkep)?>" class="btn btn-xs btn-success" style="color:white;" >
+                                                        <i class="fa fa-address-card"></i>
+                                                        Generate Akun Kepdes
+                                                    </a>
+                                                   
                                             <?php
                                                 } ?>
                                         </td>

@@ -40,6 +40,8 @@ class Admin extends CI_Controller {
                     $kabupaten_desa = $this->input->post('kabupaten_desa');
                     $email_desa = $this->input->post('email_desa');
                     $telepon_desa = $this->input->post('telepon_desa');
+                    $instagram_desa = $this->input->post('instagram_desa');
+                    $facebook_desa = $this->input->post('facebook_desa');
         
                     $data = array(
                         'nama_desa' => $nama_desa,
@@ -49,6 +51,8 @@ class Admin extends CI_Controller {
                         'kabupaten_desa' => $kabupaten_desa,
                         'email_desa' => $email_desa,
                         'telepon_desa' => $telepon_desa,
+                        'instagram_desa' => $instagram_desa,
+                        'facebook_desa' => $facebook_desa,
                     );
                     $this->M_App->simpan_data('tb_desa', $data);
                     redirect('Admin/datadesa/');
@@ -62,6 +66,20 @@ class Admin extends CI_Controller {
                         'username' => $user,
                         'password' => $password_md5,
                         'level' => $level,
+                    );
+                    $this->M_App->simpan_data('tb_akun', $data);
+                    redirect('admin/datadesa/');
+                }
+
+				// proses buat akun kepdes
+                public function buatakunkepdes($id_relasi, $userkep, $pass, $levelkep){
+                    $password_md5 = md5($pass);
+        
+                    $data = array(
+                        'id_relasi' => $id_relasi,
+                        'username' => $userkep,
+                        'password' => $password_md5,
+                        'level' => $levelkep,
                     );
                     $this->M_App->simpan_data('tb_akun', $data);
                     redirect('admin/datadesa/');
@@ -149,6 +167,14 @@ class Admin extends CI_Controller {
                     // Redirect Halaman ke Data Desa
                     redirect('Admin/datadesa/');
                 }
+			//hapus akun kepala desa 
+                function hapusakunkepdes($id_relasi,$levelkep){
+                    // Hapus Data Akun Desa
+                    $whereakun = array('id_relasi' => $id_relasi,'level' => $levelkep);
+                    $this->M_App->hapus_data('tb_akun', $whereakun);
+                    // Redirect Halaman ke Data Desa
+                    redirect('Admin/datadesa/');
+                }
             // Hapus Logo Desa
                 function hapus_file_logo($id){
                     $where = array('id_desa' => $id);
@@ -220,10 +246,10 @@ class Admin extends CI_Controller {
             // Proses Insert ()
         // READ ()
             public function laporan(){   
-                // $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
+                $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
 
                 // $this->load->view('Admin/Page/Desa/data', $data);
-                $this->load->view('Admin/Page/Laporan/data');
+                $this->load->view('Admin/Page/Laporan/data', $data);
                 $this->load->view('Admin/Layout/footer');
             }
         // UPDATE ()
