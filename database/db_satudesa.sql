@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 17 Nov 2022 pada 21.23
--- Versi server: 5.7.33
--- Versi PHP: 7.4.19
+-- Generation Time: Dec 28, 2022 at 01:31 PM
+-- Server version: 8.0.30
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,49 +24,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_akun`
+-- Table structure for table `tb_akun`
 --
 
 CREATE TABLE `tb_akun` (
-  `id_akun` int(11) NOT NULL,
-  `id_relasi` int(11) NOT NULL,
+  `id_akun` int NOT NULL,
+  `id_relasi` int NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `level` enum('Admin','Desa','Rw','Penduduk') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `level` enum('Admin','Desa','Rw','Penduduk','Kepdes') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_akun`
+-- Dumping data for table `tb_akun`
 --
 
 INSERT INTO `tb_akun` (`id_akun`, `id_relasi`, `username`, `password`, `level`) VALUES
-(1, 1, 'satudesa24', 'c22df9b49c142fa65590ec07f0492bac', 'admin'),
-(54, 4, 'DESALINGGASIRNA', 'c22df9b49c142fa65590ec07f0492bac', 'desa'),
-(58, 7, 'FAJARHIDAYATULOH', 'c22df9b49c142fa65590ec07f0492bac', 'penduduk'),
-(59, 5, 'AJIDSOLEHUDIN', 'c22df9b49c142fa65590ec07f0492bac', 'penduduk'),
-(64, 1, 'Cisompok', 'c22df9b49c142fa65590ec07f0492bac', 'rw');
+(1, 1, 'satudesa24', 'c22df9b49c142fa65590ec07f0492bac', 'Admin'),
+(54, 4, 'DESALINGGASIRNA', 'c22df9b49c142fa65590ec07f0492bac', 'Desa'),
+(58, 7, 'FAJARHIDAYATULOH', 'c22df9b49c142fa65590ec07f0492bac', 'Penduduk'),
+(59, 5, 'AJIDSOLEHUDIN', 'c22df9b49c142fa65590ec07f0492bac', 'Penduduk'),
+(64, 1, 'Cisompok', 'c22df9b49c142fa65590ec07f0492bac', 'Rw'),
+(70, 4, 'CECEPSUDRAJAT', 'c22df9b49c142fa65590ec07f0492bac', 'Kepdes');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_arsip`
+-- Table structure for table `tb_arsip`
 --
 
 CREATE TABLE `tb_arsip` (
-  `id_arsip_dokumen` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `id_jenis_dokumen` int(11) NOT NULL,
-  `file_dokumen` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_arsip_dokumen` int NOT NULL,
+  `tanggal_dokumen` datetime NOT NULL,
+  `no_surat` char(20) NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `id_jenis_dokumen` int NOT NULL,
+  `file_dokumen` longtext NOT NULL,
+  `status` enum('masuk','keluar') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_desa`
+-- Table structure for table `tb_desa`
 --
 
 CREATE TABLE `tb_desa` (
-  `id_desa` int(11) NOT NULL,
+  `id_desa` int NOT NULL,
   `logo_desa` longtext NOT NULL,
   `nama_desa` varchar(30) NOT NULL,
   `nama_kepala_desa` varchar(40) NOT NULL,
@@ -74,30 +78,33 @@ CREATE TABLE `tb_desa` (
   `kecamatan_desa` varchar(50) NOT NULL,
   `kabupaten_desa` varchar(30) NOT NULL,
   `email_desa` varchar(40) NOT NULL,
-  `telepon_desa` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `telepon_desa` varchar(15) NOT NULL,
+  `instagram_desa` longtext NOT NULL,
+  `facebook_desa` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_desa`
+-- Dumping data for table `tb_desa`
 --
 
-INSERT INTO `tb_desa` (`id_desa`, `logo_desa`, `nama_desa`, `nama_kepala_desa`, `alamat_desa`, `kecamatan_desa`, `kabupaten_desa`, `email_desa`, `telepon_desa`) VALUES
-(4, 'Logo_Kab_Tasik1.png', 'DESA LINGGASIRNA', 'CECEP SUDRAJAT', 'Jalan Padakaria No. 03 Dusun Bojong Kode Pos 46465', 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', 'desa.linggasirna@gmail.com', '6282128262881');
+INSERT INTO `tb_desa` (`id_desa`, `logo_desa`, `nama_desa`, `nama_kepala_desa`, `alamat_desa`, `kecamatan_desa`, `kabupaten_desa`, `email_desa`, `telepon_desa`, `instagram_desa`, `facebook_desa`) VALUES
+(4, 'Logo_Kab_Tasik1.png', 'DESA LINGGASIRNA', 'CECEP SUDRAJAT', 'Jalan Padakaria No. 03 Dusun Bojong Kode Pos 46465', 'KECAMATAN SARIWANGI', 'KABUPATEN TASIKMALAYA', 'desa.linggasirna@gmail.com', '6282128262881', '', ''),
+(5, '', 'DESA INGGSAPI', 'SARANAD', 'jl ir janda sukadia', 'JADIAN', 'DENGANYA', 'sukaaja@gmail.com', '098987878471324', 'https://www.instagram.com/arnisaagustina24/', 'https://www.facebook.com/sani.rusmawatisakey');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_jenis_dokumen`
+-- Table structure for table `tb_jenis_dokumen`
 --
 
 CREATE TABLE `tb_jenis_dokumen` (
-  `id_jenis` int(11) NOT NULL,
+  `id_jenis` int NOT NULL,
   `jenis_dokumen` varchar(70) NOT NULL,
   `persyaratan` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_jenis_dokumen`
+-- Dumping data for table `tb_jenis_dokumen`
 --
 
 INSERT INTO `tb_jenis_dokumen` (`id_jenis`, `jenis_dokumen`, `persyaratan`) VALUES
@@ -106,11 +113,11 @@ INSERT INTO `tb_jenis_dokumen` (`id_jenis`, `jenis_dokumen`, `persyaratan`) VALU
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_penduduk`
+-- Table structure for table `tb_penduduk`
 --
 
 CREATE TABLE `tb_penduduk` (
-  `id_penduduk` int(11) NOT NULL,
+  `id_penduduk` int NOT NULL,
   `no_kk` varchar(20) DEFAULT NULL,
   `nama` longtext,
   `nik` varchar(20) DEFAULT NULL,
@@ -132,14 +139,14 @@ CREATE TABLE `tb_penduduk` (
   `alamat` longtext,
   `rukun_tetangga` varchar(5) DEFAULT NULL,
   `rukun_warga` varchar(5) DEFAULT NULL,
-  `id_desa` int(11) DEFAULT NULL,
+  `id_desa` int DEFAULT NULL,
   `kecamatan` varchar(50) DEFAULT NULL,
   `kabupaten` varchar(50) DEFAULT NULL,
   `no_handphone_aktif` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_penduduk`
+-- Dumping data for table `tb_penduduk`
 --
 
 INSERT INTO `tb_penduduk` (`id_penduduk`, `no_kk`, `nama`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `pendidikan`, `jenis_pekerjaan`, `golongan_darah`, `status_perkawinan`, `tanggal_perkawinan`, `status_hubungan_dalam_keluarga`, `kewarganegaraan`, `no_paspor`, `no_kitap`, `ayah`, `ibu`, `alamat`, `rukun_tetangga`, `rukun_warga`, `id_desa`, `kecamatan`, `kabupaten`, `no_handphone_aktif`) VALUES
@@ -152,51 +159,52 @@ INSERT INTO `tb_penduduk` (`id_penduduk`, `no_kk`, `nama`, `nik`, `jenis_kelamin
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengajuan`
+-- Table structure for table `tb_pengajuan`
 --
 
 CREATE TABLE `tb_pengajuan` (
-  `id_pengajuan` int(11) NOT NULL,
+  `id_pengajuan` int NOT NULL,
   `tgl_pengajuan` varchar(255) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `id_jenis` int(11) NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `id_jenis` int NOT NULL,
+  `acc` enum('belumacc','accstaf','acckades') NOT NULL,
   `status_pengajuan` enum('Selesai','Dalam Proses') NOT NULL,
   `penyerahan_dokumen` enum('Ambil Sendiri','Diantar Dalam Desa','Diantar Keluar Desa') NOT NULL,
   `token_surat` varchar(40) NOT NULL,
   `keterangan` longtext NOT NULL,
   `alamat_pengiriman` longtext NOT NULL,
-  `biaya` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `biaya` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_pengajuan`
+-- Dumping data for table `tb_pengajuan`
 --
 
-INSERT INTO `tb_pengajuan` (`id_pengajuan`, `tgl_pengajuan`, `id_penduduk`, `id_jenis`, `status_pengajuan`, `penyerahan_dokumen`, `token_surat`, `keterangan`, `alamat_pengiriman`, `biaya`) VALUES
-(1, '16-11-2022 01:13:57', 5, 4, 'Selesai', 'Ambil Sendiri', 'TKSN1544', 'Estimasi Selesai Kapan?', 'KP. BANTAR KALONG CISOMPOK RT/RW 01/01 DESA LINGGASIRNA KECAMATAN SARIWANGI KABUPATEN TASIKMALAYA', 0);
+INSERT INTO `tb_pengajuan` (`id_pengajuan`, `tgl_pengajuan`, `id_penduduk`, `id_jenis`, `acc`, `status_pengajuan`, `penyerahan_dokumen`, `token_surat`, `keterangan`, `alamat_pengiriman`, `biaya`) VALUES
+(1, '16-11-2022 01:13:57', 5, 4, 'belumacc', 'Selesai', 'Ambil Sendiri', 'TKSN1544', 'Estimasi Selesai Kapan?', 'KP. BANTAR KALONG CISOMPOK RT/RW 01/01 DESA LINGGASIRNA KECAMATAN SARIWANGI KABUPATEN TASIKMALAYA', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_persyaratan`
+-- Table structure for table `tb_persyaratan`
 --
 
 CREATE TABLE `tb_persyaratan` (
-  `id_persyaratan` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
+  `id_persyaratan` int NOT NULL,
+  `id_penduduk` int NOT NULL,
   `nama_persyaratan` varchar(255) NOT NULL,
   `file_persyaratan` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_rukun_warga`
+-- Table structure for table `tb_rukun_warga`
 --
 
 CREATE TABLE `tb_rukun_warga` (
-  `id_rukun_warga` int(11) NOT NULL,
-  `id_desa` int(11) NOT NULL,
+  `id_rukun_warga` int NOT NULL,
+  `id_desa` int NOT NULL,
   `identitas` varchar(20) NOT NULL,
   `no_rukun_warga` char(11) NOT NULL,
   `nama_ketua_rw` varchar(20) NOT NULL,
@@ -204,7 +212,7 @@ CREATE TABLE `tb_rukun_warga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_rukun_warga`
+-- Dumping data for table `tb_rukun_warga`
 --
 
 INSERT INTO `tb_rukun_warga` (`id_rukun_warga`, `id_desa`, `identitas`, `no_rukun_warga`, `nama_ketua_rw`, `nip_nik`) VALUES
@@ -218,20 +226,20 @@ INSERT INTO `tb_rukun_warga` (`id_rukun_warga`, `id_desa`, `identitas`, `no_ruku
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_sdomisili`
+-- Table structure for table `tb_sdomisili`
 --
 
 CREATE TABLE `tb_sdomisili` (
-  `id_surat` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
+  `id_surat` int NOT NULL,
+  `id_penduduk` int NOT NULL,
   `nomor_surat` varchar(40) NOT NULL,
   `token_surat` varchar(40) NOT NULL,
   `tanggal_surat` varchar(40) NOT NULL,
   `alamat` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_sdomisili`
+-- Dumping data for table `tb_sdomisili`
 --
 
 INSERT INTO `tb_sdomisili` (`id_surat`, `id_penduduk`, `nomor_surat`, `token_surat`, `tanggal_surat`, `alamat`) VALUES
@@ -240,13 +248,13 @@ INSERT INTO `tb_sdomisili` (`id_surat`, `id_penduduk`, `nomor_surat`, `token_sur
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_sktm`
+-- Table structure for table `tb_sktm`
 --
 
 CREATE TABLE `tb_sktm` (
-  `id_surat` int(11) NOT NULL,
-  `id_desa` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
+  `id_surat` int NOT NULL,
+  `id_desa` int NOT NULL,
+  `id_penduduk` int NOT NULL,
   `nomor_surat` varchar(40) NOT NULL,
   `token_surat` varchar(40) NOT NULL,
   `tanggal_surat` varchar(40) NOT NULL,
@@ -255,21 +263,21 @@ CREATE TABLE `tb_sktm` (
   `nama_keperluan` varchar(30) NOT NULL,
   `tksk` varchar(30) NOT NULL,
   `fasilitator` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tb_akun`
+-- Indexes for table `tb_akun`
 --
 ALTER TABLE `tb_akun`
   ADD PRIMARY KEY (`id_akun`),
   ADD KEY `id_relasi` (`id_relasi`);
 
 --
--- Indeks untuk tabel `tb_arsip`
+-- Indexes for table `tb_arsip`
 --
 ALTER TABLE `tb_arsip`
   ADD PRIMARY KEY (`id_arsip_dokumen`),
@@ -277,26 +285,26 @@ ALTER TABLE `tb_arsip`
   ADD KEY `id_jenis_dokumen` (`id_jenis_dokumen`);
 
 --
--- Indeks untuk tabel `tb_desa`
+-- Indexes for table `tb_desa`
 --
 ALTER TABLE `tb_desa`
   ADD PRIMARY KEY (`id_desa`);
 
 --
--- Indeks untuk tabel `tb_jenis_dokumen`
+-- Indexes for table `tb_jenis_dokumen`
 --
 ALTER TABLE `tb_jenis_dokumen`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indeks untuk tabel `tb_penduduk`
+-- Indexes for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
   ADD PRIMARY KEY (`id_penduduk`),
   ADD KEY `id_desa` (`id_desa`);
 
 --
--- Indeks untuk tabel `tb_pengajuan`
+-- Indexes for table `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   ADD PRIMARY KEY (`id_pengajuan`),
@@ -304,21 +312,21 @@ ALTER TABLE `tb_pengajuan`
   ADD KEY `id_penduduk` (`id_penduduk`);
 
 --
--- Indeks untuk tabel `tb_persyaratan`
+-- Indexes for table `tb_persyaratan`
 --
 ALTER TABLE `tb_persyaratan`
   ADD PRIMARY KEY (`id_persyaratan`),
   ADD KEY `id_penduduk` (`id_penduduk`);
 
 --
--- Indeks untuk tabel `tb_rukun_warga`
+-- Indexes for table `tb_rukun_warga`
 --
 ALTER TABLE `tb_rukun_warga`
   ADD PRIMARY KEY (`id_rukun_warga`),
   ADD KEY `id_desa` (`id_desa`);
 
 --
--- Indeks untuk tabel `tb_sdomisili`
+-- Indexes for table `tb_sdomisili`
 --
 ALTER TABLE `tb_sdomisili`
   ADD PRIMARY KEY (`id_surat`),
@@ -326,7 +334,7 @@ ALTER TABLE `tb_sdomisili`
   ADD KEY `id_penduduk` (`id_penduduk`);
 
 --
--- Indeks untuk tabel `tb_sktm`
+-- Indexes for table `tb_sktm`
 --
 ALTER TABLE `tb_sktm`
   ADD PRIMARY KEY (`id_surat`),
@@ -335,113 +343,113 @@ ALTER TABLE `tb_sktm`
   ADD KEY `id_penduduk` (`id_penduduk`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_akun`
+-- AUTO_INCREMENT for table `tb_akun`
 --
 ALTER TABLE `tb_akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_akun` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_arsip`
+-- AUTO_INCREMENT for table `tb_arsip`
 --
 ALTER TABLE `tb_arsip`
-  MODIFY `id_arsip_dokumen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_arsip_dokumen` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_desa`
+-- AUTO_INCREMENT for table `tb_desa`
 --
 ALTER TABLE `tb_desa`
-  MODIFY `id_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_desa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_jenis_dokumen`
+-- AUTO_INCREMENT for table `tb_jenis_dokumen`
 --
 ALTER TABLE `tb_jenis_dokumen`
-  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jenis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_penduduk`
+-- AUTO_INCREMENT for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pengajuan`
+-- AUTO_INCREMENT for table `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
-  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengajuan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_persyaratan`
+-- AUTO_INCREMENT for table `tb_persyaratan`
 --
 ALTER TABLE `tb_persyaratan`
-  MODIFY `id_persyaratan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_persyaratan` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_rukun_warga`
+-- AUTO_INCREMENT for table `tb_rukun_warga`
 --
 ALTER TABLE `tb_rukun_warga`
-  MODIFY `id_rukun_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_rukun_warga` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_sdomisili`
+-- AUTO_INCREMENT for table `tb_sdomisili`
 --
 ALTER TABLE `tb_sdomisili`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_surat` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_sktm`
+-- AUTO_INCREMENT for table `tb_sktm`
 --
 ALTER TABLE `tb_sktm`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_arsip`
+-- Constraints for table `tb_arsip`
 --
 ALTER TABLE `tb_arsip`
   ADD CONSTRAINT `tb_arsip_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `tb_penduduk` (`id_penduduk`),
   ADD CONSTRAINT `tb_arsip_ibfk_3` FOREIGN KEY (`id_jenis_dokumen`) REFERENCES `tb_jenis_dokumen` (`id_jenis`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_penduduk`
+-- Constraints for table `tb_penduduk`
 --
 ALTER TABLE `tb_penduduk`
   ADD CONSTRAINT `tb_penduduk_ibfk_1` FOREIGN KEY (`id_desa`) REFERENCES `tb_desa` (`id_desa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pengajuan`
+-- Constraints for table `tb_pengajuan`
 --
 ALTER TABLE `tb_pengajuan`
   ADD CONSTRAINT `tb_pengajuan_ibfk_4` FOREIGN KEY (`id_jenis`) REFERENCES `tb_jenis_dokumen` (`id_jenis`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_pengajuan_ibfk_5` FOREIGN KEY (`id_penduduk`) REFERENCES `tb_penduduk` (`id_penduduk`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_persyaratan`
+-- Constraints for table `tb_persyaratan`
 --
 ALTER TABLE `tb_persyaratan`
   ADD CONSTRAINT `tb_persyaratan_ibfk_1` FOREIGN KEY (`id_penduduk`) REFERENCES `tb_penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_rukun_warga`
+-- Constraints for table `tb_rukun_warga`
 --
 ALTER TABLE `tb_rukun_warga`
   ADD CONSTRAINT `tb_rukun_warga_ibfk_1` FOREIGN KEY (`id_desa`) REFERENCES `tb_desa` (`id_desa`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_sdomisili`
+-- Constraints for table `tb_sdomisili`
 --
 ALTER TABLE `tb_sdomisili`
   ADD CONSTRAINT `tb_sdomisili_ibfk_2` FOREIGN KEY (`id_penduduk`) REFERENCES `tb_penduduk` (`id_penduduk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_sktm`
+-- Constraints for table `tb_sktm`
 --
 ALTER TABLE `tb_sktm`
   ADD CONSTRAINT `tb_sktm_ibfk_1` FOREIGN KEY (`id_desa`) REFERENCES `tb_desa` (`id_desa`),
