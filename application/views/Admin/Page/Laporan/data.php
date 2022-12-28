@@ -39,10 +39,16 @@
 															<td><?= $ts->kabupaten_desa; ?></td>
 															<td><?= $ts->kecamatan_desa; ?></td>
 															<td><?= $ts->nama_desa; ?></td>
-															<td>32</td>
+
+															<?php }
+															
+																foreach($td_rukun_warga as $trw){
+															?>
+															<td></td>
+															<?php } ?>
 															<td>2</td>
 														</tr>
-														<?php } ?>
+														
 														<tr>
 															<td class="text-center bg-light" >Total</td>
 															<td>12</td>

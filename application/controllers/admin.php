@@ -245,7 +245,18 @@ class Admin extends CI_Controller {
             // Formulir Insert ()
             // Proses Insert ()
         // READ ()
-            public function laporan(){   
+            public function laporan($id_desa){   
+				$nm_table = 'tb_rukun_warga';
+				
+				$tb_desa = 'tb_desa';
+				$join2 = 'tb_rukun_warga.id_desa = tb_desa.id_desa';
+				
+				$where = array('tb_rukun_warga' => $id_desa);
+
+				$desa ['tb_rukun_warga'] = $this->M_App->join_hitung($nm_table, $tb_desa, $join2, $where,)->result();
+
+				// $rw['tb_rukun_warga'] = $this->My_app->hitung_data($nm_table, $where);
+
                 $data['tb_desa'] = $this->M_App->tampil_data('tb_desa','id_desa','ASC')->result();
 
                 // $this->load->view('Admin/Page/Desa/data', $data);
